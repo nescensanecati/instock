@@ -14,67 +14,86 @@
 
 //mobile text styles
 
-@mixin font-page-header {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 700;
+@mixin font-m-h1-page-header {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 600;
 }
 
-@mixin font-section-header {
-  font-size: 0.75rem;
-  line-height: 1.25rem;
-  font-weight: 700;
+@mixin font-m-h2-subheader {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
 }
 
-@mixin font-subheader {
+@mixin font-m-h3-labels-links-buttons {
   font-size: 0.8125rem;
-  line-height: 1.125rem;
-  font-weight: 700;
-}
-
-@mixin font-body-copy {
-  font-size: 0.8125rem;
-  line-height: 1.125rem;
-  font-weight: 400;
-}
-
-@mixin font-button-label {
-  font-size: 0.75rem;
   line-height: 1.25rem;
   font-weight: 600;
 }
-@mixin font-form-label {
-  font-size: 0.75rem;
+
+@mixin font-m-h4-table-header {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+@mixin font-m-p1-body-large {
+  font-size: 0.9375rem;
+  line-height: 1.625rem;
+  font-weight: 400;
+}
+
+@mixin font-m-p2-body-medium {
+  font-size: 0.8125rem;
   line-height: 1.25rem;
   font-weight: 400;
 }
+@mixin font-m-p3-body-small {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
 //desktop & tablet text styles
 
-@mixin font-page-header-dt {
-  font-size: 2.0625rem;
-  line-height: 2.75rem;
-  font-weight: 700;
+@mixin font-h1-page-header {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 600;
 }
 
-@mixin font-section-header-dt {
-  font-size: 0.75rem;
-  line-height: 1.25rem;
-  font-weight: 700;
+@mixin font-h2-subheader {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
 }
 
-@mixin font-subheader-dt {
+@mixin font-h3-labels-links-buttons {
   font-size: 0.875rem;
   line-height: 1.375rem;
-  font-weight: 700;
+  font-weight: 600;
 }
-@mixin font-body-copy-dt {
+
+@mixin font-h4-table-header {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+@mixin font-p1-body-large {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+
+@mixin font-p2-body-medium {
   font-size: 0.875rem;
   line-height: 1.375rem;
   font-weight: 400;
 }
-
-@mixin font-button-label-dt {
+@mixin font-m-p3-body-small {
   font-size: 0.75rem;
-  line-height: 1.25rem;
-  font-weight: 700;
+  line-height: 1.125rem;
+  font-weight: 400;
 }
