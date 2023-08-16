@@ -1,11 +1,7 @@
 import "./Home.scss";
-import Nav from "../../components/Nav";
+import Nav from "../../components/Nav/Nav";
 
 function Home() {
-  return (
-    <>
-      <Nav />
-    </>
-  );
+  return <></>;
 }
 export default Home;
