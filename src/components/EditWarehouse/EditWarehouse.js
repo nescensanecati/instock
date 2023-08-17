@@ -1,8 +1,17 @@
 import "./EditWarehouse.scss";
+import { useState } from "react";
+import arrowBack from "../../assets/images/arrow_back-24px.svg";
 
-//accept videos (filtered)
-// function EditWarehouse({ filteredVideos }) {
 function EditWarehouse() {
+  // All form fields need to have validation both on
+  // Front-End and Back-End. All fields are required
+  // (non-empty). For Phone Number and Email fields validate
+  //  correct phone number and email. Front-End validation
+  //  needs to be custom and cannot use default HTML5 form
+  //  validation.
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
   return (
     <>
       <main className="edit-warehouse">
@@ -10,16 +19,14 @@ function EditWarehouse() {
           <div className="edit-warehouse__header">
             <img
               className="edit-warehouse__img"
-              src="./arrow_back-24px.svg"
+              src={arrowBack}
               alt="Arrow back"
             />
             <h1 className="edit-warehouse__title">Edit Warehouse</h1>
           </div>
           <form className="edit-warehouse__form">
-            <div className="edit-warehouse__warehouse-details">
-              <h2 className="edit-warehouse__subheading-warehouse">
-                Warehouse Details
-              </h2>
+            <div className="edit-warehouse__details">
+              <h2 className="edit-warehouse__subheading">Warehouse Details</h2>
               <label htmlFor="name" className="edit-warehouse__label">
                 Warehouse Name
                 <input
@@ -60,11 +67,8 @@ function EditWarehouse() {
                 ></input>
               </label>
             </div>
-            <div className="edit-warehouse__contact-details">
-              <h2 className="edit-warehouse__subheading-contact">
-                Contact Details
-              </h2>
-
+            <div className="edit-warehouse__details">
+              <h2 className="edit-warehouse__subheading">Contact Details</h2>
               <label htmlFor="contactName" className="edit-warehouse__label">
                 Contact Name
                 <input
@@ -108,7 +112,12 @@ function EditWarehouse() {
           </form>
           <div className="edit-warehouse__buttons">
             <button className="edit-warehouse__button-cancel">Cancel</button>
-            <button className="edit-warehouse__button-save">Save</button>
+            <button
+              className="edit-warehouse__button-save"
+              // onClick={handleSubmit}
+            >
+              Save
+            </button>
           </div>
         </section>
       </main>
