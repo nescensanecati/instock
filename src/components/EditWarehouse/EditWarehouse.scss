@@ -1,0 +1,101 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography";
+
+.edit-warehouse {
+  font-family: "Titillium Web", sans-serif;
+  background: linear-gradient(
+    $background-graphite 15%,
+    $background-light-grey 15%,
+    $background-light-grey 85%
+  );
+  padding: 1rem;
+  @include tablet {
+    padding: 2rem;
+  }
+  @include desktop {
+    padding: 8.125rem;
+  }
+
+  &__page {
+    background: $primary-white;
+    border-radius: 0.1875rem;
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+  }
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__title {
+    @include font-m-h1-page-header;
+    @include tablet {
+      @include font-h1-page-header;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+  &__warehouse-details {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+  }
+  &__contact-details {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+  }
+  &__subheading {
+    @include font-m-h2-subheader;
+    @include tablet {
+      @include font-h2-subheader;
+    }
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    color: $primary-instock-black;
+    @include font-m-h3-labels-links-buttons;
+    @include tablet {
+      @include font-h3-labels-links-buttons;
+    }
+  }
+  &__input {
+    border-radius: 1.25rem;
+    border: 1px solid $secondary-cloud;
+    color: $primary-instock-black;
+  }
+  &__buttons {
+    border-radius: 0 0 0.1875rem 0.1875rem;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.625rem;
+    background-color: $background-light-grey;
+  }
+  &__button-cancel {
+    padding: 0.5rem 1rem;
+    border-radius: 1.25rem;
+    background-color: $primary-white;
+    color: $secondary-slate;
+    text-align: center;
+    border: 1px solid $secondary-cloud;
+  }
+  &__button-save {
+    padding: 0.5rem 1rem;
+    border-radius: 1.25rem;
+    background-color: $primary-instock-indigo;
+    color: $primary-white;
+    text-align: center;
+    border: none;
+  }
+}

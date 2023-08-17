@@ -1,10 +1,10 @@
-import './Home.scss';
-
+import "./Home.scss";
+import EditWarehouse from "../../components/EditWarehouse/EditWarehouse";
 function Home() {
-   
-    return ( 
-        <>
-        </>
-    );
+  return (
+    <>
+      <EditWarehouse />
+    </>
+  );
 }
-  export default Home;
+export default Home;
