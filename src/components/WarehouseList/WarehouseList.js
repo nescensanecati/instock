@@ -5,6 +5,7 @@ import Search from "../../assets/images/search-24px.svg";
 import Delete from "../../assets/images/delete_outline-24px.svg";
 import Edit from "../../assets/images/edit-24px.svg";
 import Arrow from "../../assets/images/chevron_right-24px.svg";
+import Sort from "../../assets/images/sort-24px.svg";
 
 function WarehouseList() {
   const url = `https://project-1-api.herokuapp.com/`;
@@ -40,7 +41,7 @@ function WarehouseList() {
     <div className="warehouses">
       <div className="warehouses-content">
         <div className="warehouses-content__nav">
-          <h2 className="warehouses-content__nav--title">Warehouses</h2>
+          <h1 className="warehouses-content__nav--title">Warehouses</h1>
           <div className="warehouses-content__nav--search">
             <input
               type="search"
@@ -53,6 +54,22 @@ function WarehouseList() {
             {" "}
             + Add New Warehouse{" "}
           </button>
+        </div>
+
+        <div className="warehouses-content__titles">
+          <p className="warehouses-content__titles--warehouse">
+            WAREHOUSE <img src={Sort} alt="sort arrows" />{" "}
+          </p>
+          <p className="warehouses-content__titles--address">
+            ADDRESS <img src={Sort} alt="sort arrows" />{" "}
+          </p>
+          <p className="warehouses-content__titles--contact-name">
+            CONTACT NAME <img src={Sort} alt="sort arrows" />{" "}
+          </p>
+          <p className="warehouses-content__titles--contact-info">
+            CONTACT INFORMATION <img src={Sort} alt="sort arrows" />{" "}
+          </p>
+          <p className="warehouses-content__titles--actions">ACTIONS</p>
         </div>
 
         <div className="warehouses-content__list">
@@ -84,7 +101,7 @@ function WarehouseList() {
                   <div className="warehouses-content__list-warehouse--title">
                     <p>CONTACT NAME</p>
                   </div>
-                  <div className="warehouses-content__list-warehouse--info">
+                  <div className="warehouses-content__list-warehouse--contact-name">
                     <p>{item.place}</p>
                   </div>
                 </div>
@@ -95,7 +112,7 @@ function WarehouseList() {
                   <div className="warehouses-content__list-warehouse--title">
                     <p>ADDRESS</p>
                   </div>
-                  <div className="warehouses-content__list-warehouse--info">
+                  <div className="warehouses-content__list-warehouse--address">
                     <p>{item.location}</p>
                   </div>
                 </div>
@@ -103,13 +120,13 @@ function WarehouseList() {
                   <div className="warehouses-content__list-warehouse--title">
                     <p>CONTACT INFORMATION</p>
                   </div>
-                  <div className="warehouses-content__list-warehouse--info">
+                  <div className="warehouses-content__list-warehouse--contact-info">
                     <p>{item.location}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="warehouses-content__list-warehouse--rows">
+              <div className="warehouses-content__list-warehouse--actions">
                 <img src={Delete} alt="delete" /> <img src={Edit} alt="edit" />
               </div>
             </div>
