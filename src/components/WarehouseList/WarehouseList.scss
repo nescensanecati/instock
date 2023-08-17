@@ -1,0 +1,171 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.warehouses{
+    font-family: Titillium Web, sans-serif;
+    background: linear-gradient(
+    $background-graphite 5%,
+    $background-light-grey 5%,
+    $background-light-grey 85%
+  );
+
+  &-content{
+    background-color: $primary-white;
+    margin: 0 1rem;
+    color: $primary-instock-black;
+    border-radius: .1875rem;
+    box-shadow: 0 .125rem .3125rem 0 rgba(19, 24, 44, 0.10);
+
+    @include tablet {
+        padding: 3rem 2.25rem;
+        margin: 0 2.5rem;
+    }
+
+    @include desktop {
+        margin: 0 6.875rem;
+        display: flex;
+        padding: 3rem 7.25rem;
+    }
+
+    &__nav{
+        padding: 1rem;
+        border-bottom: solid 1px $secondary-cloud;
+
+        .warehouses-content__nav--title {
+            @include font-m-h1-page-header ;
+            padding: .75rem 0;
+            margin: 0;
+
+            @include tablet {
+                font-size: 3.25rem;
+            }
+
+            @include desktop {
+                font-size: 2.5rem;
+            }
+        }
+
+        .warehouses-content__nav--search{
+            border: solid .0625rem $secondary-cloud;
+            border-radius: 1.25rem;
+            background-color: $primary-white;
+            height: 11.250vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            @include tablet {
+                height: 5.208vw;
+                width: 31.662vw;
+                margin-right: 1.5625rem;
+            }
+
+            @include desktop {
+                height: 3.125vw;
+                width: 18.75vw;
+            }
+
+            .warehouses-content__nav--search-field{
+                background-color:$primary-white;
+                border: none;
+                color: $secondary-slate;
+            @include font-m-p2-body-medium;
+            
+            }
+        }
+
+        .warehouses-content__nav--button{
+            border: solid .0625rem $primary-instock-indigo;
+            border-radius: 1.25rem;
+            background-color:$primary-instock-indigo;
+            height: 11.250vw;
+            color: $primary-white;
+            width: 100%;
+            margin: .75rem 0;
+            @include font-m-p2-body-medium;
+        }
+    }
+
+    
+  }
+}
+
+
+
+.warehouses-content__list {
+    
+    @include desktop {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .warehouses-content__list-warehouse {
+        padding: 1rem;
+        border-bottom: $secondary-cloud .0625rem solid;
+
+        @include tablet {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 1.5rem 1.125rem;
+        }
+   }
+
+    .warehouses-content__list-warehouse--rows {
+    display: flex;
+    justify-content: space-between;
+    }
+
+    .warehouses-content__list-warehouse--columns {
+       
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 25%;
+        }
+    }
+
+    .warehouses-content__list-warehouse--columns-2{
+ margin-right: 44px;
+    }
+
+    .warehouses-content__list-warehouse--title{
+         color: $secondary-slate;
+         @include font-m-h4-table-header;
+    
+            @include tablet {
+            
+                display: none;
+            }
+    }
+
+    .warehouses-content__list-warehouse--name{
+        @include font-m-h3-labels-links-buttons;
+        color: $primary-instock-indigo;
+    }
+
+    .warehouses-content__list-warehouse--name-layout{
+         display: flex;
+         align-items: center; 
+    }
+  
+
+    .warehouses-content__list-warehouse--info {
+        @include font-m-p2-body-medium;
+    color:  $primary-instock-black;
+    }
+}
+
+.warehouses-content__list-warehouse:hover:not(.selected) {
+    background-color: $background-light-grey;
+}
+
+.selected {
+    background-color: $background-light-grey;
+}
+
+.warehouses-content__list-warehouse:first-of-type .warehouses-content__list-warehouse--title {
+    display: block;
+}
