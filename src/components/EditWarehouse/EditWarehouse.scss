@@ -56,6 +56,8 @@
     flex-direction: column;
     @include tablet {
       flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
     }
   }
   &__details {
@@ -72,10 +74,12 @@
       width: 50%;
       padding: 0 2.5rem;
       border-top: none;
+      // justify-content: space-between;
     }
     &--border {
       @include tablet {
         border-left: 0.0625rem solid $secondary-cloud;
+        // justify-content: space-between;
       }
     }
   }

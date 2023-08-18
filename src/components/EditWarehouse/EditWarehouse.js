@@ -1,6 +1,7 @@
 import "./EditWarehouse.scss";
 import { useState } from "react";
 import arrowBack from "../../assets/images/arrow_back-24px.svg";
+import axios from "axios";
 
 function EditWarehouse() {
   // All form fields need to have validation both on
@@ -58,6 +59,15 @@ function EditWarehouse() {
         phoneNumber,
         email,
       });
+
+      axios
+        .put("http://localhost:8080/api/warehouses/:id", video)
+        .then((response) => {
+          setVideo(response.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       alert("Signed up successfully");
     } else {
       alert("Failed to sign up, you have errors in your form");
@@ -76,7 +86,11 @@ function EditWarehouse() {
             />
             <h1 className="edit-warehouse__title">Edit Warehouse</h1>
           </div>
-          <form onSubmit={handleSubmit} className="edit-warehouse__form">
+          <form
+            novalidate
+            onSubmit={handleSubmit}
+            className="edit-warehouse__form"
+          >
             <div className="edit-warehouse__details">
               <h2 className="edit-warehouse__subheading">Warehouse Details</h2>
               <label htmlFor="name" className="edit-warehouse__label">
@@ -204,7 +218,7 @@ function EditWarehouse() {
               <label htmlFor="phoneNumber" className="edit-warehouse__label">
                 Phone Number
                 <input
-                  type="text"
+                  type="tel"
                   name="phoneNumber"
                   id="phoneNumber"
                   value={phoneNumber}
@@ -226,7 +240,7 @@ function EditWarehouse() {
               <label htmlFor="email" className="edit-warehouse__label">
                 Email
                 <input
-                  type="text"
+                  type="email"
                   name="email"
                   id="email"
                   value={email}
