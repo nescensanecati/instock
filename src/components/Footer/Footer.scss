@@ -4,16 +4,15 @@
 
 .footer {
   &__p {
+    @include font-m-p3-body-small;
     font-family: "Titillium Web", sans-serif;
     color: $secondary-slate;
-    font-style: normal;
-    font-size: 0.6875rem;
     text-align: center;
     padding: 1.5rem 0;
     @include tablet {
+      @include font-p3-body-small;
       padding-top: 3rem;
       padding-bottom: 2rem;
-      font-size: .75rem;
     }
     @include desktop {
       padding-top: 4rem;
