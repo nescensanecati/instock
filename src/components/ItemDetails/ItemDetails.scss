@@ -1,0 +1,182 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.item-details {
+  font-family: "Titillium Web", sans-serif;
+  margin: 1rem;
+  border-radius: 3px;
+  background: var(--white, #fff);
+  box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+    @include tablet {
+        margin: 3rem;
+        border-radius: 3px;
+      
+    }
+  &__back-button {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    padding: 8px 0;
+    justify-content: left;
+    align-items: center;
+    flex-shrink: 0;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__bottom {
+    padding: 2rem;
+  }
+  &__category-title {
+    color: var(--slate, #5c667e);
+    font-feature-settings: "clig" off, "liga" off;
+
+    /* M H4 */
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 145.455% */
+    text-transform: uppercase;
+  }
+  &__category-value {
+    color: var(--instock-black, #13182c);
+    font-feature-settings: "clig" off, "liga" off;
+
+    /* M P2 */
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 153.846% */
+  }
+  &__description {
+    color: var(--instock-black, #13182c);
+    font-feature-settings: "clig" off, "liga" off;
+
+    /* M P2 */
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 153.846% */
+  }
+  &__edit-button {
+    margin: auto;
+    display: flex;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background-color: #2e66e5;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__h1 {
+    font-family: "Titillium Web", sans-serif;
+    color: $primary-instock-black;
+    font-feature-settings: "clig" off, "liga" off;
+    line-height: 36px;
+    padding: 0;
+    margin: auto;
+    width: 100%;
+  }
+  &__quantity-title {
+    color: var(--slate, #5c667e);
+    font-feature-settings: "clig" off, "liga" off;
+
+    /* M H4 */
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 145.455% */
+    text-transform: uppercase;
+  }
+  &__quantity-value {
+    color: var(--instock-black, #13182c);
+    font-feature-settings: "clig" off, "liga" off;
+
+    /* M P2 */
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 153.846% */
+  }
+  &__status-container {
+    display: flex;
+    flex-direction: row;
+  }
+  &__status-left {
+    width: 50%;
+  }
+  &__status-right {
+    width: 50%;
+  }
+  &__status-title {
+    color: var(--slate, #5c667e);
+    font-feature-settings: "clig" off, "liga" off;
+
+    /* M H4 */
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 145.455% */
+    text-transform: uppercase;
+  }
+  &__status-value {
+    color: var(--green, #158463);
+    font-feature-settings: "clig" off, "liga" off;
+    /* M H4 */
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 145.455% */
+    text-transform: uppercase;
+    border-radius: 20px;
+    background: rgba(21, 132, 99, 0.07);
+    width: 50%;
+    text-align: center;
+  }
+  &__title {
+    color: var(--slate, #5c667e);
+    font-feature-settings: "clig" off, "liga" off;
+    /* M H4 */
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 145.455% */
+    text-transform: uppercase;
+  }
+  &__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: #bdc5d5 1px solid;
+    padding: 2rem;
+  }
+  &__warehouse-title {
+    color: var(--slate, #5c667e);
+    font-feature-settings: "clig" off, "liga" off;
+
+    /* M H4 */
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 145.455% */
+    text-transform: uppercase;
+  }
+  &__warehouse-value {
+    color: var(--instock-black, #13182c);
+    font-feature-settings: "clig" off, "liga" off;
+
+    /* M P2 */
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 153.846% */
+  }
+}
