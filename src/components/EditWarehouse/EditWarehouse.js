@@ -159,7 +159,7 @@ function EditWarehouse() {
                 )}
               </label>
             </div>
-            <div className="edit-warehouse__details">
+            <div className="edit-warehouse__details edit-warehouse__details--border ">
               <h2 className="edit-warehouse__subheading">Contact Details</h2>
               <label htmlFor="contact" className="edit-warehouse__label">
                 Contact Name
@@ -204,7 +204,7 @@ function EditWarehouse() {
               <label htmlFor="phoneNumber" className="edit-warehouse__label">
                 Phone Number
                 <input
-                  type="tel"
+                  type="text"
                   name="phoneNumber"
                   id="phoneNumber"
                   value={phoneNumber}
@@ -226,7 +226,7 @@ function EditWarehouse() {
               <label htmlFor="email" className="edit-warehouse__label">
                 Email
                 <input
-                  type="email"
+                  type="text"
                   name="email"
                   id="email"
                   value={email}

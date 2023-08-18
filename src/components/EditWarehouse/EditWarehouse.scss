@@ -3,7 +3,6 @@
 @use "../../styles/partials/typography";
 
 .edit-warehouse {
-  width: 100%;
   font-family: "Titillium Web", sans-serif;
   background: linear-gradient(
     $background-graphite 7.5%,
@@ -13,6 +12,11 @@
   padding: 0 1rem;
   @include tablet {
     padding: 0 2rem;
+    background: linear-gradient(
+      $background-graphite 14.75%,
+      $background-light-grey 14.75%,
+      $background-light-grey 85.25%
+    );
   }
   @include desktop {
     padding: 0 8.125rem;
@@ -27,10 +31,18 @@
     padding: 2rem 0 1rem 1.5rem;
     display: flex;
     align-items: center;
+    @include tablet {
+      margin-bottom: 2rem;
+      border-bottom: 0.0625rem solid $secondary-cloud;
+      padding: 2rem 0 1.325rem 2rem;
+    }
+    @include desktop {
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__title {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     color: $primary-instock-black;
     margin-block-start: 0;
     margin-block-end: 0;
@@ -50,15 +62,32 @@
     border-top: 0.0625rem solid $secondary-cloud;
     display: flex;
     flex-direction: column;
-    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    padding: 1rem 1.5rem;
+    @include tablet {
+      width: 50%;
+      padding: 0.5rem 2rem;
+      border-top: none;
+    }
+    @include desktop {
+      width: 50%;
+      padding: 0 2.5rem;
+      border-top: none;
+    }
+    &--border {
+      @include tablet {
+        border-left: 0.0625rem solid $secondary-cloud;
+      }
+    }
   }
   &__subheading {
     margin-block-start: 0;
     margin-block-end: 0;
-    margin-bottom: 0.5rem;
     @include font-m-h2-subheader;
     @include tablet {
       @include font-h2-subheader;
+    }
+    @include desktop {
+      margin-bottom: 0.5rem;
     }
   }
 
@@ -69,6 +98,7 @@
     margin-top: 1rem;
     @include font-m-h3-labels-links-buttons;
     @include tablet {
+      margin-top: 1.5rem;
       @include font-h3-labels-links-buttons;
     }
   }
@@ -79,7 +109,7 @@
     color: $secondary-slate;
 
     padding: 0rem 1rem;
-    height: 10.25vw;
+    height: 9.25vw;
     @include font-m-p2-body-medium;
     &:focus {
       color: $primary-instock-black;
@@ -119,6 +149,7 @@
     @include tablet {
       padding: 1rem 2rem;
       justify-content: flex-end;
+      margin-top: 2rem;
     }
     @include desktop {
       padding: 1rem 2.5rem;
@@ -139,10 +170,12 @@
     }
     height: 11.25vw;
     @include tablet {
+      width: 13%;
       height: 4.948vw;
       @include font-h3-labels-links-buttons;
     }
     @include desktop {
+      width: 9%;
       height: 2.969vw;
     }
   }
@@ -160,10 +193,12 @@
     }
     height: 11.25vw;
     @include tablet {
+      width: 11%;
       @include font-h3-labels-links-buttons;
       height: 4.948vw;
     }
     @include desktop {
+      width: 7%;
       height: 2.969vw;
     }
   }
