@@ -1,10 +1,7 @@
-import './Home.scss';
+import "./Home.scss";
+import Nav from "../../components/Nav/Nav";
 
 function Home() {
-   
-    return ( 
-        <>
-        </>
-    );
+  return <></>;
 }
-  export default Home;
+export default Home;
