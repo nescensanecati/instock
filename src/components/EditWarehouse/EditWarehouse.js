@@ -22,6 +22,9 @@ function EditWarehouse() {
 
   const [errors, setErrors] = useState({});
 
+  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  let regexTel = /^\+\d{1,2}\s\(\d{3}\)\s\d{3}-\d{4}$/;
+
   const hasError = (field) => {
     return errors[field] !== undefined;
   };
@@ -38,6 +41,9 @@ function EditWarehouse() {
     if (!position) newErrors.position = "This field is required";
     if (!phoneNumber) newErrors.phoneNumber = "This field is required";
     if (!email) newErrors.email = "This field is required";
+    if (!regexTel.test(phoneNumber))
+      newErrors.phoneNumber = "Telephone format is invalid";
+    if (!regexEmail.test(email)) newErrors.email = "Email format is invalid";
 
     setErrors(newErrors);
     console.log(newErrors);
@@ -59,11 +65,21 @@ function EditWarehouse() {
         phoneNumber,
         email,
       });
+      const warehouseData = {
+        name,
+        address,
+        city,
+        country,
+        contact,
+        position,
+        phoneNumber,
+        email,
+      };
 
       axios
-        .put("http://localhost:8080/api/warehouses/:id", video)
+        .put(`http://localhost:8080/api/warehouses/2`, warehouseData)
         .then((response) => {
-          setVideo(response.data);
+          console.log(response.data);
         })
         .catch((err) => {
           console.log(err);
