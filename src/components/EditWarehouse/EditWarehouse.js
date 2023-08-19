@@ -74,7 +74,7 @@ function EditWarehouse() {
         contact_phone,
         contact_email,
       };
-
+      //
       axios
         .put(
           `http://localhost:8080/api/warehouses/` + idFromParams,
@@ -149,11 +149,13 @@ function EditWarehouse() {
                   className={`edit-warehouse__input ${
                     hasError("address") ? "edit-warehouse__input--error" : ""
                   }`}
-                ></input>{" "}
-                {hasError("address") && (
-                  <p className="edit-warehouse__error-message">
-                    This field is required
-                  </p>
+                />
+                {hasError("address") ? (
+                  <span className="edit-warehouse__error-message">
+                    {`This field is required`}
+                  </span>
+                ) : (
+                  <span></span>
                 )}
               </label>
 
@@ -169,11 +171,13 @@ function EditWarehouse() {
                   className={`edit-warehouse__input ${
                     hasError("city") ? "edit-warehouse__input--error" : ""
                   }`}
-                ></input>{" "}
-                {hasError("city") && (
-                  <p className="edit-warehouse__error-message">
-                    This field is required
-                  </p>
+                />
+                {hasError("city") ? (
+                  <span className="edit-warehouse__error-message">
+                    {`This field is required`}
+                  </span>
+                ) : (
+                  <span></span>
                 )}
               </label>
 
@@ -189,11 +193,13 @@ function EditWarehouse() {
                   className={`edit-warehouse__input ${
                     hasError("country") ? "edit-warehouse__input--error" : ""
                   }`}
-                ></input>{" "}
-                {hasError("country") && (
-                  <p className="edit-warehouse__error-message">
-                    This field is required
-                  </p>
+                />
+                {hasError("country") ? (
+                  <span className="edit-warehouse__error-message">
+                    {`This field is required`}
+                  </span>
+                ) : (
+                  <span></span>
                 )}
               </label>
             </div>
@@ -213,11 +219,13 @@ function EditWarehouse() {
                       ? "edit-warehouse__input--error"
                       : ""
                   }`}
-                ></input>{" "}
-                {hasError("contact_name") && (
-                  <p className="edit-warehouse__error-message">
-                    This field is required
-                  </p>
+                />
+                {hasError("contact_name") ? (
+                  <span className="edit-warehouse__error-message">
+                    {`This field is required`}
+                  </span>
+                ) : (
+                  <span></span>
                 )}
               </label>
 
@@ -235,11 +243,13 @@ function EditWarehouse() {
                       ? "edit-warehouse__input--error"
                       : ""
                   }`}
-                ></input>{" "}
-                {hasError("contact_position") && (
-                  <p className="edit-warehouse__error-message">
-                    This field is required
-                  </p>
+                />
+                {hasError("contact_position") ? (
+                  <span className="edit-warehouse__error-message">
+                    {`This field is required`}
+                  </span>
+                ) : (
+                  <span></span>
                 )}
               </label>
 
@@ -257,11 +267,13 @@ function EditWarehouse() {
                       ? "edit-warehouse__input--error"
                       : ""
                   }`}
-                ></input>{" "}
-                {hasError("contact_phone") && (
-                  <p className="edit-warehouse__error-message">
-                    This field is required
-                  </p>
+                />
+                {hasError("contact_phone") ? (
+                  <span className="edit-warehouse__error-message">
+                    {`This field is required`}
+                  </span>
+                ) : (
+                  <span></span>
                 )}
               </label>
 
@@ -279,11 +291,13 @@ function EditWarehouse() {
                       ? "edit-warehouse__input--error"
                       : ""
                   }`}
-                ></input>{" "}
-                {hasError("contact_email") && (
-                  <p className="edit-warehouse__error-message">
-                    This field is required
-                  </p>
+                />
+                {hasError("contact_email") ? (
+                  <span className="edit-warehouse__error-message">
+                    {`This field is required`}
+                  </span>
+                ) : (
+                  <span></span>
                 )}
               </label>
             </div>

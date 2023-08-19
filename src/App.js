@@ -19,7 +19,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
           <Route
             path="/editwarehouse/:idFromParams"
-            component={<EditWarehouse />}
+            element={<EditWarehouse />}
           />
           <Route path="/inventory" element={<Inventory />} />
         </Routes>

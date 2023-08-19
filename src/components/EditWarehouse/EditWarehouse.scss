@@ -4,28 +4,34 @@
 
 .edit-warehouse {
   font-family: "Titillium Web", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
   background: linear-gradient(
     $background-graphite 7.5%,
     $background-light-grey 7.5%,
     $background-light-grey 92.5%
   );
-  padding: 0 1rem;
+  height: auto;
   @include tablet {
-    padding: 0 2rem;
     background: linear-gradient(
       $background-graphite 14.75%,
       $background-light-grey 14.75%,
       $background-light-grey 85.25%
     );
   }
-  @include desktop {
-    padding: 0 8.125rem;
-  }
 
   &__page {
     background: $primary-white;
     border-radius: 0.1875rem;
     box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+    margin: 0 1rem;
+    @include tablet {
+      margin: 0 2rem;
+    }
+    @include desktop {
+      margin: 0 8.125rem;
+    }
   }
   &__header {
     padding: 2rem 0 1rem 1.5rem;
@@ -74,12 +80,10 @@
       width: 50%;
       padding: 0 2.5rem;
       border-top: none;
-      // justify-content: space-between;
     }
     &--border {
       @include tablet {
         border-left: 0.0625rem solid $secondary-cloud;
-        // justify-content: space-between;
       }
     }
   }
@@ -205,5 +209,8 @@
       width: 7%;
       height: 2.969vw;
     }
+  }
+  span {
+    height: 0.6875rem;
   }
 }
