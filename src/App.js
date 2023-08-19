@@ -6,6 +6,7 @@ import Deleteinventory from "./components/Deleteinventory/Deleteinventory";
 import Deletewarehouse from "./components/Deletewarehouse/Deletewarehouse";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
+import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/deleteinventory/:id" element={<Deleteinventory />} />
           <Route path="/deletewarehouse/:id" element={<Deletewarehouse />} />
+          <Route path="/addwarehouse" element={<AddNewWarehouse />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />

@@ -72,21 +72,16 @@ function AddNewWarehouse() {
       };
       //Send the data to the server using the axios library's PUT method to update data on the server
       axios
-        .put(
-          `http://localhost:8080/api/warehouses/` + idFromParams,
-          warehouseData
-        )
-        .then((response) => {
-          console.log(response.data);
-        })
+        .post(`http://localhost:8080/api/warehouses`, warehouseData)
+        .then((response) => {})
         .catch((err) => {
           //log errors that occurr during data submision
           console.log(err);
         });
-      alert("Updated warehouse details successfully!");
+      alert("Updated new warehouse details successfully!");
     } else {
       alert(
-        "Failed to update the warehouse details, there was at least one error in the form."
+        "Failed to update the new warehouse details, there was at least one error in the form."
       );
     }
   };
@@ -101,12 +96,12 @@ function AddNewWarehouse() {
               src={arrowBack}
               alt="Arrow back"
             />
-            <h1 className="add-warehouse__title">Edit Warehouse</h1>
+            <h1 className="add-warehouse__title">Add New Warehouse</h1>
           </div>
           <form
             noValidate
             onSubmit={handleSubmit}
-            className="edit-warehouse__form"
+            className="add-warehouse__form"
           >
             <div className="add-warehouse__details">
               <h2 className="add-warehouse__subheading">Warehouse Details</h2>
@@ -116,10 +111,10 @@ function AddNewWarehouse() {
                   type="text"
                   name="warehouse_name"
                   id="name"
-                  placeholder="Washington"
+                  placeholder="Warehouse Name"
                   value={warehouse_name}
                   onChange={(e) => setName(e.target.value)}
-                  className={`edit-warehouse__input ${
+                  className={`add-warehouse__input ${
                     hasError("warehouse_name")
                       ? "add-warehouse__input--error"
                       : ""
@@ -140,7 +135,7 @@ function AddNewWarehouse() {
                   type="text"
                   name="address"
                   id="address"
-                  placeholder="33 Pearl Street SW"
+                  placeholder="Street Address"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   className={`add-warehouse__input ${
@@ -162,7 +157,7 @@ function AddNewWarehouse() {
                   type="text"
                   name="city"
                   id="city"
-                  placeholder="Washington"
+                  placeholder="City"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   className={`add-warehouse__input ${
@@ -184,7 +179,7 @@ function AddNewWarehouse() {
                   type="text"
                   name="country"
                   id="country"
-                  placeholder="USA"
+                  placeholder="Country"
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
                   className={`add-warehouse__input ${
@@ -209,7 +204,7 @@ function AddNewWarehouse() {
                   name="contact_name"
                   id="contact"
                   value={contact_name}
-                  placeholder="Graeme Lyon"
+                  placeholder="Contact Name"
                   onChange={(e) => setContact(e.target.value)}
                   className={`add-warehouse__input ${
                     hasError("contact_name")
@@ -232,7 +227,7 @@ function AddNewWarehouse() {
                   type="text"
                   name="contact_position"
                   id="position"
-                  placeholder="Warehouse Manager"
+                  placeholder="Position"
                   value={contact_position}
                   onChange={(e) => setPosition(e.target.value)}
                   className={`add-warehouse__input ${
@@ -258,7 +253,7 @@ function AddNewWarehouse() {
                   id="contact_phone"
                   value={contact_phone}
                   onChange={(e) => setPhoneNumber(e.target.value)}
-                  placeholder="+1 (647) 504-0911"
+                  placeholder="Phone Number"
                   className={`add-warehouse__input ${
                     hasError("contact_phone")
                       ? "add-warehouse__input--error"
@@ -281,7 +276,7 @@ function AddNewWarehouse() {
                   name="contact_email"
                   id="contact_email"
                   value={contact_email}
-                  placeholder="glyon@instock.com"
+                  placeholder="Email"
                   onChange={(e) => setEmail(e.target.value)}
                   className={`add-warehouse__input ${
                     hasError("contact_email")
