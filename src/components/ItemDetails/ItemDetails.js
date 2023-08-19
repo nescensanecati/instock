@@ -8,19 +8,19 @@ import axios from 'axios';
 
 
 function ItemDetails() {
-	const [item, setItem] = useState([])
+    const [item, setItem] = useState([])
     const { id } = useParams()
 
     const url = 'http://localhost:8080/api/inventories/' + id
     useEffect(() => {
-		axios.get(url)
-			.then(response => {
-				setItem(response.data);
-			})
-			.catch(error => {
-				console.log("axios call failed", error);
-			});
-	}, [])
+        axios.get(url)
+            .then(response => {
+                setItem(response.data);
+            })
+            .catch(error => {
+                console.log("axios call failed", error);
+            });
+    }, [])
 
     if (item.length === 0) {
         return (
@@ -40,22 +40,26 @@ function ItemDetails() {
                     <div className='item-details__edit-button'><img src={editButton} alt='button used to edit one item' /></div>
                 </section>
                 <section className='item-details__bottom'>
-                    <p className='item-details__title'>ITEM DESCRIPTION:</p>
-                    <p className='item-details__description'>{item[0].description}</p>
-                    <p className='item-details__category-title'>CATEGORY:</p>
-                    <p className='item-details__category-value'>{item[0].category}</p>
-                    <div className='item-details__status-container'>
-                        <div className='item-details__status-left'>
-                            <p className='item-details__status-title'>Status</p>
-                            {inStock ? <p className='item-details__status-value-green'>In Stock</p> : <p className='item-details__status-value-red'>Out of stock</p>}
-                        </div>
-                        <div className='item-details__status-right'>
-                            <p className='item-details__quantity-title'>Quantity</p>
-                            <p className='item-details__quantity-value'>{item[0].quantity}</p>
-                        </div>
+                    <div className='item-details__left-column'>
+                        <p className='item-details__title'>ITEM DESCRIPTION:</p>
+                        <p className='item-details__description'>{item[0].description}</p>
+                        <p className='item-details__category-title'>CATEGORY:</p>
+                        <p className='item-details__category-value'>{item[0].category}</p>
                     </div>
-                    <p className='item-details__warehouse-title'>WAREHOUSE:</p>
-                    <p className='item-details__warehouse-value'>{item[0].warehouse_name}</p>
+                    <div className='item-details__right-column'>
+                        <div className='item-details__status-container'>
+                            <div className='item-details__status-left'>
+                                <p className='item-details__status-title'>Status</p>
+                                {inStock ? <p className='item-details__status-value-green'>In Stock</p> : <p className='item-details__status-value-red'>Out of stock</p>}
+                            </div>
+                            <div className='item-details__status-right'>
+                                <p className='item-details__quantity-title'>Quantity</p>
+                                <p className='item-details__quantity-value'>{item[0].quantity}</p>
+                            </div>
+                        </div>
+                        <p className='item-details__warehouse-title'>WAREHOUSE:</p>
+                        <p className='item-details__warehouse-value'>{item[0].warehouse_name}</p>
+                    </div>
                 </section>
             </div>
         )

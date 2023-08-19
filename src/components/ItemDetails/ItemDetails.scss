@@ -8,11 +8,10 @@
   border-radius: 3px;
   background: var(--white, #fff);
   box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
-    @include tablet {
-        margin: 3rem;
-        border-radius: 3px;
-      
-    }
+  @include tablet {
+    margin: 3rem;
+    border-radius: 3px;
+  }
   &__back-button {
     display: flex;
     width: 36px;
@@ -28,6 +27,12 @@
   }
   &__bottom {
     padding: 2rem;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
   }
   &__category-title {
     color: var(--slate, #5c667e);
@@ -84,6 +89,15 @@
     margin: auto;
     width: 100%;
   }
+  &__left-column,
+  &__right-column {
+    @include tablet {
+      width: 40%;
+    }
+  }
+  &__right-column {
+    padding-left: 2rem;
+  }
   &__quantity-title {
     color: var(--slate, #5c667e);
     font-feature-settings: "clig" off, "liga" off;
@@ -105,15 +119,28 @@
     font-weight: 400;
     line-height: 20px; /* 153.846% */
   }
+  &__left-column {
+    padding-right: 2rem;
+    border-right: #bdc5d5 solid 1px;
+  }
   &__status-container {
     display: flex;
     flex-direction: row;
+    @include tablet {
+      flex-direction: row;
+    }
   }
   &__status-left {
     width: 50%;
+    @include tablet {
+      width: 60%;
+    }
   }
   &__status-right {
     width: 50%;
+    @include tablet {
+      width: 40%;
+    }
   }
   &__status-title {
     color: var(--slate, #5c667e);
@@ -126,7 +153,8 @@
     line-height: 16px; /* 145.455% */
     text-transform: uppercase;
   }
-  &__status-value-green, &__status-value-red {
+  &__status-value-green,
+  &__status-value-red {
     font-feature-settings: "clig" off, "liga" off;
     /* M H4 */
     font-size: 11px;
@@ -174,6 +202,10 @@
     font-weight: 600;
     line-height: 16px; /* 145.455% */
     text-transform: uppercase;
+
+    @include tablet {
+      width: 100%;
+    }
   }
   &__warehouse-value {
     color: var(--instock-black, #13182c);
@@ -184,5 +216,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: 20px; /* 153.846% */
+    @include tablet {
+      width: 100%;
+    }
   }
 }
