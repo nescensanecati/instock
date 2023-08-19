@@ -1,24 +1,20 @@
 import "./EditWarehouse.scss";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import arrowBack from "../../assets/images/arrow_back-24px.svg";
 import axios from "axios";
 
 function EditWarehouse() {
-  // All form fields need to have validation both on
-  // Front-End and Back-End. All fields are required
-  // (non-empty). For Phone Number and Email fields validate
-  //  correct phone number and email. Front-End validation
-  //  needs to be custom and cannot use default HTML5 form
-  //  validation.
+  const { idFromParams } = useParams();
 
-  const [name, setName] = useState("");
+  const [warehouse_name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
-  const [contact, setContact] = useState("");
-  const [position, setPosition] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
+  const [contact_name, setContact] = useState("");
+  const [contact_position, setPosition] = useState("");
+  const [contact_phone, setPhoneNumber] = useState("");
+  const [contact_email, setEmail] = useState("");
 
   const [errors, setErrors] = useState({});
 
@@ -32,18 +28,21 @@ function EditWarehouse() {
   const isFormValid = () => {
     const newErrors = {};
 
-    //Check if the fields are all filled
-    if (!name) newErrors.name = "This field is required";
+    //Check if the fields are all filled (non-empty)
+    if (!warehouse_name) newErrors.warehouse_name = "This field is required";
     if (!address) newErrors.address = "This field is required";
     if (!city) newErrors.city = "This field is required";
     if (!country) newErrors.country = "This field is required";
-    if (!contact) newErrors.contact = "This field is required";
-    if (!position) newErrors.position = "This field is required";
-    if (!phoneNumber) newErrors.phoneNumber = "This field is required";
-    if (!email) newErrors.email = "This field is required";
-    if (!regexTel.test(phoneNumber))
-      newErrors.phoneNumber = "Telephone format is invalid";
-    if (!regexEmail.test(email)) newErrors.email = "Email format is invalid";
+    if (!contact_name) newErrors.contact_name = "This field is required";
+    if (!contact_position)
+      newErrors.contact_position = "This field is required";
+    if (!contact_phone) newErrors.contact_phone = "This field is required";
+    if (!contact_email) newErrors.contact_email = "This field is required";
+    //  For Phone Number and Email fields validate correct phone number and email. Front-End validation needs to be custom and cannot use default HTML5 form validation.
+    if (!regexTel.test(contact_phone))
+      newErrors.contact_phone = "Telephone format is invalid";
+    if (!regexEmail.test(contact_email))
+      newErrors.contact_email = "Email format is invalid";
 
     setErrors(newErrors);
     console.log(newErrors);
@@ -56,37 +55,42 @@ function EditWarehouse() {
       console.log(e);
       // Perform your data submission - sending to database
       console.log("Data to submit:", {
-        name,
+        warehouse_name,
         address,
         city,
         country,
-        contact,
-        position,
-        phoneNumber,
-        email,
+        contact_name,
+        contact_position,
+        contact_phone,
+        contact_email,
       });
       const warehouseData = {
-        name,
+        warehouse_name,
         address,
         city,
         country,
-        contact,
-        position,
-        phoneNumber,
-        email,
+        contact_name,
+        contact_position,
+        contact_phone,
+        contact_email,
       };
 
       axios
-        .put(`http://localhost:8080/api/warehouses/2`, warehouseData)
+        .put(
+          `http://localhost:8080/api/warehouses/${idFromParams}`,
+          warehouseData
+        )
         .then((response) => {
           console.log(response.data);
         })
         .catch((err) => {
           console.log(err);
         });
-      alert("Signed up successfully");
+      alert("Updated warehouse details successfully");
     } else {
-      alert("Failed to sign up, you have errors in your form");
+      alert(
+        "Failed to update the warehouse details, there was at least one error in the form."
+      );
     }
   };
 
@@ -103,7 +107,7 @@ function EditWarehouse() {
             <h1 className="edit-warehouse__title">Edit Warehouse</h1>
           </div>
           <form
-            novalidate
+            noValidate
             onSubmit={handleSubmit}
             className="edit-warehouse__form"
           >
@@ -113,19 +117,23 @@ function EditWarehouse() {
                 Warehouse Name
                 <input
                   type="text"
-                  name="name"
+                  name="warehouse_name"
                   id="name"
                   placeholder="Washington"
-                  value={name}
+                  value={warehouse_name}
                   onChange={(e) => setName(e.target.value)}
                   className={`edit-warehouse__input ${
-                    hasError("name") ? "edit-warehouse__input--error" : ""
+                    hasError("warehouse_name")
+                      ? "edit-warehouse__input--error"
+                      : ""
                   }`}
-                ></input>{" "}
-                {hasError("name") && (
-                  <p className="edit-warehouse__error-message">
-                    This field is required
-                  </p>
+                />
+                {hasError("warehouse_name") ? (
+                  <span className="edit-warehouse__error-message">
+                    {`This field is required`}
+                  </span>
+                ) : (
+                  <span></span>
                 )}
               </label>
 
@@ -195,16 +203,18 @@ function EditWarehouse() {
                 Contact Name
                 <input
                   type="text"
-                  name="contact"
+                  name="contact_name"
                   id="contact"
-                  value={contact}
+                  value={contact_name}
                   placeholder="Graeme Lyon"
                   onChange={(e) => setContact(e.target.value)}
                   className={`edit-warehouse__input ${
-                    hasError("contact") ? "edit-warehouse__input--error" : ""
+                    hasError("contact_name")
+                      ? "edit-warehouse__input--error"
+                      : ""
                   }`}
                 ></input>{" "}
-                {hasError("contact") && (
+                {hasError("contact_name") && (
                   <p className="edit-warehouse__error-message">
                     This field is required
                   </p>
@@ -215,58 +225,62 @@ function EditWarehouse() {
                 Position
                 <input
                   type="text"
-                  name="position"
+                  name="contact_position"
                   id="position"
                   placeholder="Warehouse Manager"
-                  value={position}
+                  value={contact_position}
                   onChange={(e) => setPosition(e.target.value)}
                   className={`edit-warehouse__input ${
-                    hasError("position") ? "edit-warehouse__input--error" : ""
-                  }`}
-                ></input>{" "}
-                {hasError("position") && (
-                  <p className="edit-warehouse__error-message">
-                    This field is required
-                  </p>
-                )}
-              </label>
-
-              <label htmlFor="phoneNumber" className="edit-warehouse__label">
-                Phone Number
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  id="phoneNumber"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  placeholder="+1 (647) 504-0911"
-                  className={`edit-warehouse__input ${
-                    hasError("phoneNumber")
+                    hasError("contact_position")
                       ? "edit-warehouse__input--error"
                       : ""
                   }`}
                 ></input>{" "}
-                {hasError("phoneNumber") && (
+                {hasError("contact_position") && (
                   <p className="edit-warehouse__error-message">
                     This field is required
                   </p>
                 )}
               </label>
 
-              <label htmlFor="email" className="edit-warehouse__label">
+              <label htmlFor="contact_phone" className="edit-warehouse__label">
+                Phone Number
+                <input
+                  type="tel"
+                  name="contact_phone"
+                  id="contact_phone"
+                  value={contact_phone}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  placeholder="+1 (647) 504-0911"
+                  className={`edit-warehouse__input ${
+                    hasError("contact_phone")
+                      ? "edit-warehouse__input--error"
+                      : ""
+                  }`}
+                ></input>{" "}
+                {hasError("contact_phone") && (
+                  <p className="edit-warehouse__error-message">
+                    This field is required
+                  </p>
+                )}
+              </label>
+
+              <label htmlFor="contact_email" className="edit-warehouse__label">
                 Email
                 <input
                   type="email"
-                  name="email"
-                  id="email"
-                  value={email}
+                  name="contact_email"
+                  id="contact_email"
+                  value={contact_email}
                   placeholder="glyon@instock.com"
                   onChange={(e) => setEmail(e.target.value)}
                   className={`edit-warehouse__input ${
-                    hasError("email") ? "edit-warehouse__input--error" : ""
+                    hasError("contact_email")
+                      ? "edit-warehouse__input--error"
+                      : ""
                   }`}
                 ></input>{" "}
-                {hasError("email") && (
+                {hasError("contact_email") && (
                   <p className="edit-warehouse__error-message">
                     This field is required
                   </p>
