@@ -4,8 +4,8 @@ import Home from "./pages/Home/Home";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 import Deleteinventory from "./components/Deleteinventory/Deleteinventory";
+import Deletewarehouse from "./components/Deletewarehouse/Deletewarehouse";
 import Nav from "./components/Nav/Nav";
-import Inventory from "./pages/Inventory/Inventory";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -15,7 +15,8 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/deleteinventory" element={<Deleteinventory />} />
+          <Route path="/deleteinventory/:id" element={<Deleteinventory />} />
+          <Route path="/deletewarehouse/:id" element={<Deletewarehouse />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route
             path="/editwarehouse/:idFromParams"
