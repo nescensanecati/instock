@@ -90,9 +90,11 @@
   &__subheading {
     margin-block-start: 0;
     margin-block-end: 0;
+    padding-bottom: 1rem;
     @include font-m-h2-subheader;
     @include tablet {
       @include font-h2-subheader;
+      padding-bottom: 1.5rem;
     }
     @include desktop {
       margin-bottom: 0.5rem;
@@ -103,11 +105,17 @@
     display: flex;
     flex-direction: column;
     color: $primary-instock-black;
-    margin-top: 1rem;
+    margin-top: 0;
     @include font-m-h3-labels-links-buttons;
     @include tablet {
-      margin-top: 1.5rem;
+      margin-top: 0.375;
       @include font-h3-labels-links-buttons;
+    }
+    span {
+      height: 1rem;
+      @include tablet {
+        height: 1.125rem;
+      }
     }
   }
   &__input {
@@ -209,8 +217,5 @@
       width: 7%;
       height: 2.969vw;
     }
-  }
-  span {
-    height: 0.6875rem;
   }
 }
