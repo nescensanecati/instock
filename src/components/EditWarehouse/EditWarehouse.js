@@ -21,12 +21,14 @@ function EditWarehouse() {
   let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   let regexTel = /^\+\d{1,2}\s\(\d{3}\)\s\d{3}-\d{4}$/;
 
+  //function that checks whether there is an error associated with a particular form field.
   const hasError = (field) => {
-    return errors[field] !== undefined;
+    return errors[field] !== undefined; //If it's not undefined it is because there is an error message that exists for that field and returns true
   };
 
+  //function that validates the form input fields, returns true or false.
   const isFormValid = () => {
-    const newErrors = {};
+    const newErrors = {}; //empty object to store validation error messages for all the different form fields.
 
     //Check if the fields are all filled (non-empty)
     if (!warehouse_name) newErrors.warehouse_name = "This field is required";
@@ -38,32 +40,26 @@ function EditWarehouse() {
       newErrors.contact_position = "This field is required";
     if (!contact_phone) newErrors.contact_phone = "This field is required";
     if (!contact_email) newErrors.contact_email = "This field is required";
+
     //  For Phone Number and Email fields validate correct phone number and email. Front-End validation needs to be custom and cannot use default HTML5 form validation.
     if (!regexTel.test(contact_phone))
       newErrors.contact_phone = "Telephone format is invalid";
     if (!regexEmail.test(contact_email))
       newErrors.contact_email = "Email format is invalid";
 
-    setErrors(newErrors);
-    console.log(newErrors);
+    setErrors(newErrors); //updates the errors state with the new generated error messages.
+
+    // Return true if there are no error messages, otherwise false
     return Object.keys(newErrors).length === 0;
   };
 
+  //handles form submission, validates the form data, sends it to the server for updating, and provides
+  //user feedback based on the outcome of the submission and validation process.
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // prevents default form submission behavior
+
     if (isFormValid()) {
-      console.log(e);
-      // Perform your data submission - sending to database
-      console.log("Data to submit:", {
-        warehouse_name,
-        address,
-        city,
-        country,
-        contact_name,
-        contact_position,
-        contact_phone,
-        contact_email,
-      });
+      // Prepare data submission - sending to database (server)
       const warehouseData = {
         warehouse_name,
         address,
@@ -74,7 +70,7 @@ function EditWarehouse() {
         contact_phone,
         contact_email,
       };
-      //
+      //Send the data to the server using the axios library's PUT method to update data on the server
       axios
         .put(
           `http://localhost:8080/api/warehouses/` + idFromParams,
@@ -84,9 +80,10 @@ function EditWarehouse() {
           console.log(response.data);
         })
         .catch((err) => {
+          //log errors that occurr during data submision
           console.log(err);
         });
-      alert("Updated warehouse details successfully");
+      alert("Updated warehouse details successfully!");
     } else {
       alert(
         "Failed to update the warehouse details, there was at least one error in the form."
