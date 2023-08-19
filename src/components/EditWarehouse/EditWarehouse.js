@@ -77,7 +77,7 @@ function EditWarehouse() {
 
       axios
         .put(
-          `http://localhost:8080/api/warehouses/${idFromParams}`,
+          `http://localhost:8080/api/warehouses/` + idFromParams,
           warehouseData
         )
         .then((response) => {

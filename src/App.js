@@ -3,19 +3,27 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
+import Deleteinventory from "./components/Deleteinventory/Deleteinventory";
+import Nav from "./components/Nav/Nav";
+import Inventory from "./pages/Inventory/Inventory";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/deleteinventory" element={<Deleteinventory />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route
             path="/editwarehouse/:idFromParams"
             component={<EditWarehouse />}
           />
+          <Route path="/inventory" element={<Inventory />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
