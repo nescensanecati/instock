@@ -1,0 +1,11 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory__item-heading {
+  color: $secondary-slate;
+}
+
+.inventory__item-subheading--indigo {
+  color: $primary-instock-indigo;
+}

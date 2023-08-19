@@ -14,8 +14,8 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/deleteinventory" element={<Deleteinventory />} />
-          <Route path="/deletewarehouse" element={<Deletewarehouse />} />
+          <Route path="/deleteinventory/:id" element={<Deleteinventory />} />
+          <Route path="/deletewarehouse/:id" element={<Deletewarehouse />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/inventory" element={<Inventory />} />
         </Routes>
