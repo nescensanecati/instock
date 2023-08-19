@@ -5,7 +5,6 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import Deleteinventory from "./component/Deleteinventory/Deleteinventory";
 import Deletewarehouse from "./component/Deletewarehouse/Deletewarehouse";
 import Nav from "./components/Nav/Nav";
-import Inventory from "./pages/Inventory/Inventory";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
           <Route path="/deleteinventory/:id" element={<Deleteinventory />} />
           <Route path="/deletewarehouse/:id" element={<Deletewarehouse />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/inventory" element={<Inventory />} />
         </Routes>
       </BrowserRouter>
     </>
