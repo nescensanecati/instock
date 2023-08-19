@@ -19,7 +19,7 @@ function App() {
           <Route path="/deleteinventory" element={<Deleteinventory />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/inventory" element={<Inventory />} />
-          <Route path="/itemdetails" element={<ItemDetails />} />
+          <Route path="/itemdetails/:id" element={<ItemDetails />} />
 
         </Routes>
         <Footer />
