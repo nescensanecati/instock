@@ -4,6 +4,7 @@
 main {
   display: flex;
   flex-direction: column;
+  position: fixed;
   width: 100%;
   @include tablet {
     background-color: rgb(19, 24, 44, 0.5);
