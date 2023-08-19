@@ -8,32 +8,28 @@ import Arrow from "../../assets/images/chevron_right-24px.svg";
 import Sort from "../../assets/images/sort-24px.svg";
 
 function WarehouseList() {
-  const url = `https://project-1-api.herokuapp.com/`;
-  const apiKey = `8bca0229-fc27-4f65-8f5c-ccc07db8a3ff`;
-  const showsUrl = `${url}showdates?api_key=${apiKey}`;
+  const url = `http://localhost:8080/api/warehouses`;
+  const warehousesUrl = `${url}`;
 
   const [contentItems, setContentItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
-    getAndDisplayShows();
+    getAndDisplayWarehouses();
   }, []);
 
-  const getAndDisplayShows = () => {
-    console.log(showsUrl);
+  const getAndDisplayWarehouses = () => {
     axios
-      .get(showsUrl)
+      .get(warehousesUrl)
       .then((result) => {
-        const contentItems = result.data;
-        console.log("got shows", contentItems);
-        setContentItems(contentItems);
+        setContentItems(result.data);
       })
       .catch((error) => {
         console.log("got error calling API", error);
       });
   };
 
-  const handleShowClick = (index) => {
+  const handleWarehousesClick = (index) => {
     setSelectedItem(index);
   };
 
@@ -77,9 +73,11 @@ function WarehouseList() {
             <div
               key={index}
               className={`warehouses-content__list-warehouse ${
-                selectedItem === index ? "selected" : ""
+                selectedItem === index
+                  ? "warehouses-content__list-warehouse--selected"
+                  : ""
               }`}
-              onClick={() => handleShowClick(index)}
+              onClick={() => handleWarehousesClick(index)}
             >
               <div className="warehouses-content__list-warehouse--rows">
                 <div className="warehouses-content__list-warehouse--columns">
@@ -88,11 +86,7 @@ function WarehouseList() {
                   </div>
                   <div className="warehouses-content__list-warehouse--name">
                     <p className="warehouses-content__list-warehouse--name-layout">
-                      {new Date(item.date).toLocaleDateString("en-US", {
-                        month: "2-digit",
-                        year: "numeric",
-                        day: "2-digit",
-                      })}
+                      {item.warehouse_name}
                       <img src={Arrow} alt="arrow" />
                     </p>
                   </div>
@@ -102,7 +96,12 @@ function WarehouseList() {
                     <p>CONTACT NAME</p>
                   </div>
                   <div className="warehouses-content__list-warehouse--contact-name">
-                    <p>{item.place}</p>
+                    <p>{item.contact_name}</p>
+                  </div>
+                  <div className="warehouses-content__list-warehouse--address-tablet">
+                    <p>
+                      {item.address}, {item.city}, {item.country}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -113,7 +112,12 @@ function WarehouseList() {
                     <p>ADDRESS</p>
                   </div>
                   <div className="warehouses-content__list-warehouse--address">
-                    <p>{item.location}</p>
+                    <p>
+                      {item.address}, {item.city}, {item.country}
+                    </p>
+                  </div>
+                  <div className="warehouses-content__list-warehouse--contact-name-tablet">
+                    <p>{item.contact_name}</p>
                   </div>
                 </div>
                 <div className="warehouses-content__list-warehouse--columns">
@@ -121,7 +125,9 @@ function WarehouseList() {
                     <p>CONTACT INFORMATION</p>
                   </div>
                   <div className="warehouses-content__list-warehouse--contact-info">
-                    <p>{item.location}</p>
+                    <p>
+                      {item.contact_phone} {item.contact_email}
+                    </p>
                   </div>
                 </div>
               </div>
