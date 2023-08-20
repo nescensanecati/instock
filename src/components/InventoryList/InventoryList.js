@@ -6,7 +6,7 @@ import Delete from "../../assets/images/delete_outline-24px.svg";
 import Edit from "../../assets/images/edit-24px.svg";
 import Arrow from "../../assets/images/chevron_right-24px.svg";
 import Sort from "../../assets/images/sort-24px.svg";
-
+import { Link } from "react-router-dom";
 function InventoryList() {
   const inventoriesUrl = `http://localhost:8080/api/inventories`;
 
@@ -86,12 +86,18 @@ function InventoryList() {
                   <div className="inventories-content__list-inventory--title">
                     <p>INVENTORY ITEM</p>
                   </div>
-                  <div className="inventories-content__list-inventory--item-name">
-                    <p className="inventories-content__list-inventory--item-name-layout">
-                      {item.item_name}
-                      <img src={Arrow} alt="arrow" />
-                    </p>
-                  </div>
+                  <Link
+                    className="inventories__links"
+                    to={`/itemdetails/${item.id}`}
+                    key={item.id}
+                  >
+                    <div className="inventories-content__list-inventory--item-name">
+                      <p className="inventories-content__list-inventory--item-name-layout">
+                        {item.item_name}
+                        <img src={Arrow} alt="arrow" />
+                      </p>
+                    </div>
+                  </Link>
                 </div>
                 <div className="inventories-content__list-inventory--columns-2">
                   <div className="inventories-content__list-inventory--title">
@@ -144,7 +150,11 @@ function InventoryList() {
               </div>
 
               <div className="inventories-content__list-inventory--actions">
-                <img src={Delete} alt="delete" /> <img src={Edit} alt="edit" />
+                <Link to={`/deleteinventory/${item.id}`} key={item.id}>
+                  {" "}
+                  <img src={Delete} alt="delete" />
+                </Link>{" "}
+                <img src={Edit} alt="edit" />
               </div>
             </div>
           ))}
