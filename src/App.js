@@ -9,6 +9,7 @@ import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import InventoryList from "./components/InventoryList/InventoryList";
 import ItemDetails from "./components/ItemDetails/ItemDetails";
+import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/inventory" element={<InventoryList />} />
           <Route path="/deleteinventory/:id" element={<Deleteinventory />} />
           <Route path="/deletewarehouse/:id" element={<Deletewarehouse />} />
+          <Route path="/addwarehouse" element={<AddNewWarehouse />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/editwarehouse/:idFromParams" element={<EditWarehouse />}/>
           <Route path="/itemdetails/:id" element={<ItemDetails />} />
