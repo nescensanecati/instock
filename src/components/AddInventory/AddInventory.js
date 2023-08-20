@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import error from "../../assets/images/error-24px.svg";
-import plus from "../../assets/images/";
 
 function AddInventory() {
   const [itemName, setItemName] = useState("");
