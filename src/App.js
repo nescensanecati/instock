@@ -7,6 +7,8 @@ import Deleteinventory from "./components/Deleteinventory/Deleteinventory";
 import Deletewarehouse from "./components/Deletewarehouse/Deletewarehouse";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
+import ItemDetails from "./components/ItemDetails/ItemDetails";
+
 
 function App() {
   return (
@@ -18,11 +20,9 @@ function App() {
           <Route path="/deleteinventory/:id" element={<Deleteinventory />} />
           <Route path="/deletewarehouse/:id" element={<Deletewarehouse />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route
-            path="/editwarehouse/:idFromParams"
-            element={<EditWarehouse />}
-          />
-          <Route path="/inventory" element={<Inventory />} />
+          <Route path="/editwarehouse/:idFromParams" element={<EditWarehouse />}/>
+          {/* <Route path="/inventory" element={<Inventory />} /> */}
+          <Route path="/itemdetails/:id" element={<ItemDetails />} />
         </Routes>
         <Footer />
       </BrowserRouter>
