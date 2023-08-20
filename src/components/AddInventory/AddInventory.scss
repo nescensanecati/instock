@@ -3,20 +3,37 @@
 @use "../../styles/partials/mixins" as *;
 
 .add-inventory {
+  font-family: "Titillium Web", sans-serif;
   border: 2px solid blue;
   margin: 0 1rem 0 1rem;
+  color: $primary-instock-black;
+
+  @include desktop {
+    margin: 1rem 3rem 1rem 3rem;
+  }
 
   &__h1-container {
     display: flex;
     justify-content: center;
     padding: 0 1rem 0 1rem;
+    @include tablet {
+      justify-content: flex-start;
+      padding-left: 2rem;
+    }
   }
   &__h1 {
     @include font-m-h1-page-header;
+    @include tablet {
+      @include font-h1-page-header;
+      padding-left: 0.5rem;
+    }
   }
   &__back-button {
     align-self: flex-start;
-    padding-top: 2rem;
+    padding-top: 1.7rem;
+    @include tablet {
+      padding-top: 2.2rem;
+    }
   }
 }
 
@@ -26,13 +43,23 @@
 
 .item {
   padding: 0 1rem 1rem 1rem;
+  @include tablet {
+    width: 100%;
+    padding-inline: 2rem;
+  }
 
   &__h2 {
     @include font-m-h2-subheader;
+    @include tablet {
+      @include font-h2-subheader;
+    }
   }
   &__input-container {
     display: flex;
     flex-direction: column;
+    @include tablet {
+      margin-bottom: 1.4rem;
+    }
   }
 }
 
@@ -42,24 +69,66 @@ label {
 }
 
 input,
-select,
-textarea {
+select {
   margin-bottom: 0.5rem;
   height: 36px;
   border-radius: 20px;
   border: 1px solid $secondary-cloud;
+  padding-left: 1rem;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 1px solid $primary-instock-indigo;
 }
 
-input,
-.radio {
+textarea {
+  height: 11.5vh;
+  margin-bottom: 0.5rem;
+  border-radius: 20px;
+  border: 1px solid $secondary-cloud;
+  display: flex;
+  align-items: flex-start;
+  @include font-m-p2-body-medium;
+  padding-top: 1rem;
+  padding-left: 0.8rem;
 }
 
 .radio-container {
   display: flex;
   justify-content: space-between;
   padding-right: 3rem;
+  @include tablet {
+    margin-bottom: 1.4rem;
+    justify-content: flex-start;
+  }
 }
 .radio-item {
   display: flex;
   align-items: center;
+  @include tablet {
+    padding-right: 2rem;
+  }
+}
+
+.add-inventory-main {
+  @include tablet {
+    display: flex;
+    justify-content: center;
+
+    padding: 1rem 0 1rem 0;
+  }
+}
+
+#vertical {
+  @include tablet {
+    height: 439px;
+  }
+}
+
+label {
+  @include font-m-h3-labels-links-buttons;
+  @include tablet {
+    @include font-h3-labels-links-buttons;
+  }
 }
