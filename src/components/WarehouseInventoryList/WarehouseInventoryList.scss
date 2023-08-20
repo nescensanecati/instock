@@ -2,7 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 
-.inventories{
+.warehouse-inventories{
     font-family: Titillium Web, sans-serif;
     background: linear-gradient(
     $background-graphite 3.75rem,
@@ -38,85 +38,6 @@
 
     @include desktop {
         margin: 0 8.125rem;
-    }
-
-    &__nav{
-        padding: 1rem;
-        border-bottom: solid .0625rem $secondary-cloud;
-        @include tablet {
-            padding: 2rem;
-            display: flex;
-            border-bottom: none;
-        }
-        @include desktop{
-            padding: 2rem 2.5rem 1.375rem 2.5rem;
-            justify-content: space-between;
-        }
-
-        &--title {
-            @include font-m-h1-page-header ;
-            padding: .75rem 0;
-            margin: 0;
-
-            @include tablet {
-              @include font-h1-page-header;
-              padding: 0;
-            }
-        }
-
-        &--search {
-            border: solid .0625rem $secondary-cloud;
-            border-radius: 1.25rem;
-            background-color: $primary-white;
-            height: 11.250vw;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-
-            @include tablet {
-                height: 4.948vw;
-                width: 24.089vw;
-                margin-left: 3.125rem;
-                margin-right: 1rem;
-                padding: 0 .3125rem;
-            }
-            @include desktop{
-                height: 2.969vw;
-                width: 21.406vw;
-                margin-left: 17.8125rem;
-                padding: 0;
-            }
-
-            &-field{
-                background-color:$primary-white;
-                border: none;
-                color: $secondary-slate;
-            @include font-m-p2-body-medium;
-            } 
-        }
-
-        &--button {
-            border: solid .0625rem $primary-instock-indigo;
-            border-radius: 1.25rem;
-            background-color:$primary-instock-indigo;
-            height: 11.250vw;
-            color: $primary-white;
-            width: 100%;
-            margin: .75rem 0;
-            @include font-m-p2-body-medium;
-
-            @include tablet{
-                @include font-h3-labels-links-buttons;
-                margin: 0;
-                width: 24.089vw;
-                height: 4.948vw;
-            }
-
-            @include desktop{
-                height: 2.969vw;
-                 width: 13.125vw
-            }
-        }
     }
 
     &__titles{

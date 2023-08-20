@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
-            path="/warehouseinventorylist/:id"
+            path="/warehouseinventorylist/:idFromParams"
             element={<WarehouseInventoryList />}
           />
           <Route path="/deleteinventory/:id" element={<Deleteinventory />} />

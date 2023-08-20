@@ -1,156 +1,152 @@
 import "./WarehouseInventoryList.scss";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Search from "../../assets/images/search-24px.svg";
 import Delete from "../../assets/images/delete_outline-24px.svg";
 import Edit from "../../assets/images/edit-24px.svg";
 import Arrow from "../../assets/images/chevron_right-24px.svg";
 import Sort from "../../assets/images/sort-24px.svg";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function WarehouseInventoryList() {
-  const inventoriesUrl = `http://localhost:8080/api/inventories`;
+  const { idFromParams } = useParams();
 
-  const [inventoriesItems, setInventoriesItems] = useState([]);
-  const [selectedInventoriesItem, setSelectedInventoriesItem] = useState(null);
+  const [warehouseInventoriesItems, setWarehouseInventoriesItems] = useState(
+    []
+  );
+
+  let defaultWarehouseId = null;
+
+  if (warehouseInventoriesItems.length > 0) {
+    defaultWarehouseId = warehouseInventoriesItems[0].id;
+  }
+
+  const warehouseIdToDisplay =
+    idFromParams !== undefined ? idFromParams : defaultWarehouseId;
+
+  const filteredWarehouses = warehouseInventoriesItems.filter((warehouse) => {
+    return warehouse.id !== warehouseIdToDisplay;
+  });
+  const warehouseinventoriesUrl = `http://localhost:8080/api/warehouses/${warehouseIdToDisplay}/inventories `;
+
+  const [
+    selectedWarehouseInventoriesItem,
+    setSelectedWarehouseInventoriesItem,
+  ] = useState(null);
 
   useEffect(() => {
-    getAndDisplayInventories();
-  }, []);
+    getAndDisplayWarehouseInventories();
+  }, [idFromParams]);
 
-  const getAndDisplayInventories = () => {
+  const getAndDisplayWarehouseInventories = () => {
     axios
-      .get(inventoriesUrl)
+      .get(warehouseinventoriesUrl)
       .then((result) => {
-        setInventoriesItems(result.data);
+        setWarehouseInventoriesItems(result.data);
       })
       .catch((error) => {
         console.log("got error calling API", error);
       });
   };
 
-  const handleInventoriesClick = (index) => {
-    setSelectedInventoriesItem(index);
+  const handleWarehouseInventoriesClick = (index) => {
+    setSelectedWarehouseInventoriesItem(index);
   };
 
   return (
-    <div className="inventories">
-      <div className="inventories-content">
-        {/* <div className="inventories-content__nav">
-          <h1 className="inventories-content__nav--title">Inventory</h1>
-          <div className="inventories-content__nav--search">
-            <input
-              type="search"
-              value="Search..."
-              className="inventories-content__nav--search-field"
-            />{" "}
-            <img src={Search} alt="search" />
-          </div>
-          <button className="inventories-content__nav--button">
-            {" "}
-            + Add New Item{" "}
-          </button>
-        </div> */}
-
-        <div className="inventories-content__titles">
-          <p className="inventories-content__titles--inventory-item">
+    <div className="warehouse-inventories">
+      <div className="warehouse-inventories-content">
+        <div className="warehouse-inventories-content__titles">
+          <p className="warehouse-inventories-content__titles--inventory-item">
             INVENTORY ITEM <img src={Sort} alt="sort arrows" />{" "}
           </p>
-          <p className="inventories-content__titles--category">
+          <p className="warehouse-inventories-content__titles--category">
             CATEGORY <img src={Sort} alt="sort arrows" />{" "}
           </p>
-          <p className="inventories-content__titles--status">
+          <p className="warehouse-inventories-content__titles--status">
             STATUS <img src={Sort} alt="sort arrows" />{" "}
           </p>
-          <p className="inventories-content__titles--quantity">
+          <p className="warehouse-inventories-content__titles--quantity">
             QUANTITY <img src={Sort} alt="sort arrows" />{" "}
           </p>
-          {/* <p className="inventories-content__titles--warehouse">
-            WAREHOUSE <img src={Sort} alt="sort arrows" />{" "}
-          </p> */}
-          <p className="inventories-content__titles--actions">ACTIONS</p>
+          <p className="warehouse-inventories-content__titles--actions">
+            ACTIONS
+          </p>
         </div>
 
-        <div className="inventories-content__list">
-          {inventoriesItems.map((item, index) => (
+        <div className="warehouse-inventories-content__list">
+          {warehouseInventoriesItems.map((item, index) => (
             <div
               key={index}
-              className={`inventories-content__list-inventory ${
-                selectedInventoriesItem === index
-                  ? "inventories-content__list-inventory--selected"
+              className={`warehouse-inventories-content__list-inventory ${
+                selectedWarehouseInventoriesItem === index
+                  ? "warehouse-inventories-content__list-inventory--selected"
                   : ""
               }`}
-              onClick={() => handleInventoriesClick(index)}
+              onClick={() => handleWarehouseInventoriesClick(index)}
             >
-              <div className="inventories-content__list-inventory--rows">
-                <div className="inventories-content__list-inventory--columns">
-                  <div className="inventories-content__list-inventory--title">
+              <div className="warehouse-inventories-content__list-inventory--rows">
+                <div className="warehouse-inventories-content__list-inventory--columns">
+                  <div className="warehouse-inventories-content__list-inventory--title">
                     <p>INVENTORY ITEM</p>
                   </div>
                   <Link
-                    className="inventories__links"
+                    className="warehouse-inventories__links"
                     to={`/itemdetails/${item.id}`}
                     key={item.id}
                   >
-                    <div className="inventories-content__list-inventory--item-name">
-                      <p className="inventories-content__list-inventory--item-name-layout">
+                    <div className="warehouse-inventories-content__list-inventory--item-name">
+                      <p className="warehouse-inventories-content__list-inventory--item-name-layout">
                         {item.item_name}
                         <img src={Arrow} alt="arrow" />
                       </p>
                     </div>
                   </Link>
                 </div>
-                <div className="inventories-content__list-inventory--columns-2">
-                  <div className="inventories-content__list-inventory--title">
+                <div className="warehouse-inventories-content__list-inventory--columns-2">
+                  <div className="warehouse-inventories-content__list-inventory--title">
                     <p>STATUS</p>
                   </div>
                   <div
-                    className={`inventories-content__list-inventory--status ${
+                    className={`warehouse-inventories-content__list-inventory--status ${
                       item.status === "In Stock" ? "in-stock" : "out-of-stock"
                     }`}
                   >
                     <p>{item.status}</p>
                   </div>
-                  <div className="inventories-content__list-inventory--category-tablet">
+                  <div className="warehouse-inventories-content__list-inventory--category-tablet">
                     <p>{item.category}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="inventories-content__list-inventory--rows">
-                <div className="inventories-content__list-inventory--columns">
-                  <div className="inventories-content__list-inventory--title">
+              <div className="warehouse-inventories-content__list-inventory--rows">
+                <div className="warehouse-inventories-content__list-inventory--columns">
+                  <div className="warehouse-inventories-content__list-inventory--title">
                     <p>CATEGORY</p>
                   </div>
-                  <div className="inventories-content__list-inventory--category">
+                  <div className="warehouse-inventories-content__list-inventory--category">
                     <p>{item.category}</p>
                   </div>
                   <div
-                    className={`inventories-content__list-inventory--status-tablet ${
+                    className={`warehouse-inventories-content__list-inventory--status-tablet ${
                       item.status === "In Stock" ? "in-stock" : "out-of-stock"
                     }`}
                   >
                     <p>{item.status}</p>
                   </div>
                 </div>
-                <div className="inventories-content__list-inventory--columns-tablet">
-                  <div className="inventories-content__list-inventory--title">
+                <div className="warehouse-inventories-content__list-inventory--columns-tablet">
+                  <div className="warehouse-inventories-content__list-inventory--title">
                     <p>QTY</p>
                   </div>
-                  <div className="inventories-content__list-inventory--quantity">
+                  <div className="warehouse-inventories-content__list-inventory--quantity">
                     <p>{item.quantity}</p>
                   </div>
-
-                  {/* <div className="inventories-content__list-inventory--title">
-                    <p>WAREHOUSE</p>
-                  </div>
-                  <div className="inventories-content__list-inventory--warehouse">
-                    <p>{item.warehouse_name}</p>
-                  </div> */}
                 </div>
               </div>
 
-              <div className="inventories-content__list-inventory--actions">
+              <div className="warehouse-inventories-content__list-inventory--actions">
                 <Link to={`/deleteinventory/${item.id}`} key={item.id}>
                   {" "}
                   <img src={Delete} alt="delete" />
