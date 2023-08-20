@@ -4,12 +4,13 @@
 
 .add-inventory {
   font-family: "Titillium Web", sans-serif;
-  border: 2px solid blue;
   margin: 0 1rem 0 1rem;
   color: $primary-instock-black;
+  box-shadow: 0 0 5px $background-graphite;
+  border-radius: 0.5rem;
 
   @include desktop {
-    margin: 1rem 3rem 1rem 3rem;
+    margin: 1rem 6rem 1rem 6rem;
   }
 
   &__h1-container {
@@ -99,7 +100,6 @@ textarea {
   justify-content: space-between;
   padding-right: 3rem;
   @include tablet {
-    margin-bottom: 1.4rem;
     justify-content: flex-start;
   }
 }
@@ -122,7 +122,7 @@ textarea {
 
 #vertical {
   @include tablet {
-    height: 439px;
+    height: 534px;
   }
 }
 
@@ -130,5 +130,86 @@ label {
   @include font-m-h3-labels-links-buttons;
   @include tablet {
     @include font-h3-labels-links-buttons;
+  }
+}
+
+.error-text {
+  color: $supporting-red;
+  @include font-m-h4-table-header;
+  align-self: center;
+  padding-left: 0.3rem;
+  @include tablet {
+    @include font-h4-table-header;
+  }
+}
+
+.add-item__error-message {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+.add-item__input--error {
+  border-color: $supporting-red;
+}
+
+.error-icon {
+  height: 16px;
+  @include tablet {
+    height: 20px;
+  }
+}
+
+.radio-div {
+  display: flex;
+  margin-bottom: 0.7rem;
+  @include tablet {
+    margin-bottom: 1.7rem;
+  }
+}
+
+.cancel-button,
+.confirm-button {
+  width: 45%;
+  height: 36px;
+  border-radius: 20px;
+  margin-right: 1rem;
+}
+
+.item__input-button-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: $background-light-grey;
+  padding-left: 1rem;
+  align-items: center;
+  @include tablet {
+    justify-content: flex-end;
+  }
+}
+
+.confirm-button {
+  background-color: $primary-instock-indigo;
+  border-color: $primary-instock-indigo;
+  color: white;
+  border: 2px;
+  @include tablet {
+    width: 15%;
+  }
+}
+
+.cancel-button {
+  color: $secondary-slate;
+  background-color: white;
+  border: 1px solid $secondary-cloud;
+  width: 100%;
+  @include tablet {
+    width: 84%;
+  }
+}
+
+#cancel-link {
+  width: 50%;
+  @include tablet {
+    width: 13%;
   }
 }

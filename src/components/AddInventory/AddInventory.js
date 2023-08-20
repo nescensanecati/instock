@@ -1,13 +1,13 @@
 import React from "react";
 import arrow from "../../assets/images/arrow_back-24px.svg";
 import "./AddInventory.scss";
-// import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import error from "../../assets/images/error-24px.svg";
+import plus from "../../assets/images/";
 
 function AddInventory() {
-  // const [idFromParams] = useParams();
   const [itemName, setItemName] = useState("");
   const [itemDescription, setItemDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -49,18 +49,31 @@ function AddInventory() {
       axios
         .post(`http://localhost:8080/api/inventories/`, inventoryData)
         .then((response) => {
-          console.log(response.data);
+          alert("Updated new warehouse details successfully!");
+          setItemName("");
+          setItemDescription("");
+          setCategory("");
+          setItemStatus("");
+          setQuantity("");
+          setWarehouse("");
         })
         .catch((err) => {
           //log errors that occurr during data submision
           console.log(err);
         });
-      alert("Updated new inventory successfully!");
     } else {
       alert(
         "Failed to update the new inventory, there was at least one error in the form."
       );
     }
+  };
+  const handleCancel = () => {
+    setItemName("");
+    setItemDescription("");
+    setCategory("");
+    setItemStatus("");
+    setQuantity("");
+    setWarehouse("");
   };
 
   return (
@@ -94,7 +107,8 @@ function AddInventory() {
                 ></input>
                 {hasError("itemName") && (
                   <span className="add-item__error-message">
-                    {errors["itemName"]}
+                    <img src={error} alt="Error icon" className="error-icon" />
+                    <span className="error-text">{errors["itemName"]}</span>
                   </span>
                 )}
               </div>
@@ -113,7 +127,10 @@ function AddInventory() {
                 ></textarea>
                 {hasError("itemDescription") && (
                   <span className="add-item__error-message">
-                    {errors["itemDescription"]}
+                    <img src={error} alt="Error icon" className="error-icon" />
+                    <span className="error-text">
+                      {errors["itemDescription"]}
+                    </span>
                   </span>
                 )}
               </div>
@@ -137,7 +154,8 @@ function AddInventory() {
                 </select>
                 {hasError("category") && (
                   <span className="add-item__error-message">
-                    {errors["category"]}
+                    <img src={error} alt="Error icon" className="error-icon" />
+                    <span className="error-text">{errors["category"]}</span>
                   </span>
                 )}
               </div>
@@ -146,9 +164,9 @@ function AddInventory() {
           <div className="divider" id="vertical"></div>
           <section className="item">
             <h2 className="item__h2">Item Availability</h2>
+
             <form>
               <label>Status</label>
-
               <div className="radio-container">
                 <div className="radio-item">
                   <input
@@ -180,8 +198,9 @@ function AddInventory() {
                 </div>
               </div>
               {hasError("itemStatus") && (
-                <span className="add-item__error-message">
-                  {errors["itemStatus"]}
+                <span className="radio-div">
+                  <img src={error} alt="Error icon" className="error-icon" />
+                  <span className="error-text">{errors["itemStatus"]}</span>
                 </span>
               )}
 
@@ -229,17 +248,24 @@ function AddInventory() {
                 </select>
                 {hasError("warehouse") && (
                   <span className="add-item__error-message">
-                    {errors["warehouse"]}
+                    <img src={error} alt="Error icon" className="error-icon" />
+                    <span className="error-text">{errors["warehouse"]}</span>
                   </span>
                 )}
               </div>
             </form>
-            <div className="item__input-button-container">
-              <button>Cancel</button>
-              <button onClick={handleSubmit}>Add Item</button>
-            </div>
           </section>
         </main>
+        <div className="item__input-button-container">
+          <Link to="/" id="cancel-link">
+            <button className="cancel-button" onClick={handleCancel}>
+              Cancel
+            </button>
+          </Link>
+          <button className="confirm-button" onClick={handleSubmit}>
+            Add Item
+          </button>
+        </div>
       </section>
     </>
   );
