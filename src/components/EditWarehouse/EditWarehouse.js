@@ -90,6 +90,7 @@ function EditWarehouse() {
       );
     }
   };
+  // function to handle the Cancel button click, takes the user to warehouse list page
 
   return (
     <>
@@ -300,7 +301,9 @@ function EditWarehouse() {
             </div>
           </form>
           <div className="edit-warehouse__buttons">
-            <button className="edit-warehouse__button-cancel">Cancel</button>
+            <Link to="/">
+              <button className="edit-warehouse__button-cancel">Cancel</button>
+            </Link>
             <button
               className="edit-warehouse__button-save"
               onClick={handleSubmit}
