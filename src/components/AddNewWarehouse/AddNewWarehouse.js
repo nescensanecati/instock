@@ -1,11 +1,11 @@
 import "./AddNewWarehouse.scss";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import arrowBack from "../../assets/images/arrow_back-24px.svg";
 import axios from "axios";
 
 function AddNewWarehouse() {
-  const { idFromParams } = useParams();
+  const formRef = useRef(null);
 
   const [warehouse_name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -73,17 +73,42 @@ function AddNewWarehouse() {
       //Send the data to the server using the axios library's PUT method to update data on the server
       axios
         .post(`http://localhost:8080/api/warehouses`, warehouseData)
-        .then((response) => {})
+        .then((response) => {
+          formRef.current.reset();
+          alert("Updated new warehouse details successfully!");
+          setName("");
+          setAddress("");
+          setCity("");
+          setCountry("");
+          setContact("");
+          setPosition("");
+          setPhoneNumber("");
+          setEmail("");
+        })
         .catch((err) => {
           //log errors that occurr during data submision
           console.log(err);
         });
-      alert("Updated new warehouse details successfully!");
     } else {
       alert(
         "Failed to update the new warehouse details, there was at least one error in the form."
       );
     }
+  };
+
+  // function to handle the Cancel button click, takes the user to warehouse list page
+  const handleCancel = () => {
+    // refresh the form by resetting all the state values to empty
+    setName("");
+    setAddress("");
+    setCity("");
+    setCountry("");
+    setContact("");
+    setPosition("");
+    setPhoneNumber("");
+    setEmail("");
+    //reset form
+    formRef.current.reset();
   };
 
   return (
@@ -99,6 +124,7 @@ function AddNewWarehouse() {
             <h1 className="add-warehouse__title">Add New Warehouse</h1>
           </div>
           <form
+            ref={formRef}
             noValidate
             onSubmit={handleSubmit}
             className="add-warehouse__form"
@@ -295,7 +321,14 @@ function AddNewWarehouse() {
             </div>
           </form>
           <div className="add-warehouse__buttons">
-            <button className="add-warehouse__button-cancel">Cancel</button>
+            <Link to="/">
+              <button
+                className="add-warehouse__button-cancel"
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
+            </Link>
             <button
               className="add-warehouse__button-add"
               onClick={handleSubmit}

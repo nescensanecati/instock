@@ -179,7 +179,7 @@
     color: $secondary-slate;
     text-align: center;
     border: 1px solid $secondary-cloud;
-    width: 49%;
+    width: 37vw;
     @include font-m-h3-labels-links-buttons;
     &:hover {
       color: $primary-instock-indigo;
@@ -187,12 +187,12 @@
     }
     height: 11.25vw;
     @include tablet {
-      width: 13%;
+      width: 10.5vw;
       height: 4.948vw;
       @include font-h3-labels-links-buttons;
     }
     @include desktop {
-      width: 9%;
+      width: 6.25vw;
       height: 2.969vw;
     }
   }
