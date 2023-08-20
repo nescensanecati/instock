@@ -74,7 +74,6 @@ function AddNewWarehouse() {
       axios
         .post(`http://localhost:8080/api/warehouses`, warehouseData)
         .then((response) => {
-          formRef.current.reset();
           alert("Updated new warehouse details successfully!");
           setName("");
           setAddress("");
