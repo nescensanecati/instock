@@ -11,6 +11,7 @@ import InventoryList from "./components/InventoryList/InventoryList";
 import ItemDetails from "./components/ItemDetails/ItemDetails";
 import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse";
 import AddInventory from "./components/AddInventory/AddInventory";
+import EditItem from "./components/EditItem/EditItem";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/editwarehouse/:idFromParams" element={<EditWarehouse />}/>
           <Route path="/itemdetails/:id" element={<ItemDetails />} />
           <Route path="/addinventory" element={<AddInventory />} />
+          <Route path="/edititem/:id" element={<EditItem />}/>
         </Routes>
         <Footer />
       </BrowserRouter>
