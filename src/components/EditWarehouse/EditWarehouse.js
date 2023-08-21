@@ -1,6 +1,6 @@
 import "./EditWarehouse.scss";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import arrowBack from "../../assets/images/arrow_back-24px.svg";
 import axios from "axios";
 
@@ -84,6 +84,7 @@ function EditWarehouse() {
           console.log(err);
         });
       alert("Updated warehouse details successfully!");
+      window.location.replace("/");
     } else {
       alert(
         "Failed to update the warehouse details, there was at least one error in the form."
@@ -96,11 +97,13 @@ function EditWarehouse() {
       <main className="edit-warehouse">
         <section className="edit-warehouse__page">
           <div className="edit-warehouse__header">
-            <img
-              className="edit-warehouse__img"
-              src={arrowBack}
-              alt="Arrow back"
-            />
+            <Link to="/">
+              <img
+                className="edit-warehouse__img"
+                src={arrowBack}
+                alt="Arrow back"
+              />
+            </Link>
             <h1 className="edit-warehouse__title">Edit Warehouse</h1>
           </div>
           <form
@@ -300,7 +303,9 @@ function EditWarehouse() {
             </div>
           </form>
           <div className="edit-warehouse__buttons">
-            <button className="edit-warehouse__button-cancel">Cancel</button>
+            <Link to="/" className="edit-warehouse__link">
+              <button className="edit-warehouse__button-cancel">Cancel</button>
+            </Link>
             <button
               className="edit-warehouse__button-save"
               onClick={handleSubmit}
