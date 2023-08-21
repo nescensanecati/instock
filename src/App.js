@@ -11,7 +11,6 @@ import InventoryList from "./components/InventoryList/InventoryList";
 import ItemDetails from "./components/ItemDetails/ItemDetails";
 import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse";
 import AddInventory from "./components/AddInventory/AddInventory";
-import WarehouseInventoryList from "./components/WarehouseInventoryList/WarehouseInventoryList";
 
 function App() {
   return (
@@ -20,10 +19,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/warehouseinventorylist/:idFromParams"
-            element={<WarehouseInventoryList />}
-          />
+          <Route path="/inventory" element={<InventoryList />} />
           <Route path="/deleteinventory/:id" element={<Deleteinventory />} />
           <Route path="/deletewarehouse/:id" element={<Deletewarehouse />} />
           <Route path="/addwarehouse" element={<AddNewWarehouse />} />
