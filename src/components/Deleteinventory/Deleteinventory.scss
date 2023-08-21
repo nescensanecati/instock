@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials//typography" as *;
-main {
+.in-stock-main {
   display: flex;
   flex-direction: column;
   // position: fixed;

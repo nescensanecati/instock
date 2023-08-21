@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer";
 import InventoryList from "./components/InventoryList/InventoryList";
 import ItemDetails from "./components/ItemDetails/ItemDetails";
 import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse";
+import AddInventory from "./components/AddInventory/AddInventory";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/editwarehouse/:idFromParams" element={<EditWarehouse />}/>
           <Route path="/itemdetails/:id" element={<ItemDetails />} />
+          <Route path="/addinventory" element={<AddInventory />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -24,7 +24,7 @@ function Deleteinventory() {
   }
 
   return (
-    <main>
+    <main className="instock-main">
       <div className="instock">
         <div className="instock__container">
           <div className="instock__icon-container">
