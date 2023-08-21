@@ -3,7 +3,11 @@
 @use "../../styles/partials/mixins" as *;
 
 .footer {
+  margin-block-start: 0;
+  margin-block-end: 0;
   &__p {
+    margin-block-start: 0;
+    margin-block-end: 0;
     @include font-m-p3-body-small;
     font-family: "Titillium Web", sans-serif;
     color: $secondary-slate;

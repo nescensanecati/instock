@@ -83,6 +83,7 @@ function AddNewWarehouse() {
           setPosition("");
           setPhoneNumber("");
           setEmail("");
+          window.location.replace("/");
         })
         .catch((err) => {
           //log errors that occurr during data submision
@@ -106,8 +107,6 @@ function AddNewWarehouse() {
     setPosition("");
     setPhoneNumber("");
     setEmail("");
-    //reset form
-    formRef.current.reset();
   };
 
   return (
@@ -115,15 +114,16 @@ function AddNewWarehouse() {
       <main className="add-warehouse">
         <section className="add-warehouse__page">
           <div className="add-warehouse__header">
-            <img
-              className="add-warehouse__img"
-              src={arrowBack}
-              alt="Arrow back"
-            />
+            <Link to="/">
+              <img
+                className="add-warehouse__img"
+                src={arrowBack}
+                alt="Arrow back"
+              />
+            </Link>
             <h1 className="add-warehouse__title">Add New Warehouse</h1>
           </div>
           <form
-            ref={formRef}
             noValidate
             onSubmit={handleSubmit}
             className="add-warehouse__form"
