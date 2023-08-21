@@ -1,0 +1,131 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+#warehouse-details {
+  font-family: "Titillium Web", sans-serif;
+  margin: 1rem;
+  border-radius: 3px;
+  background: var(--white, #fff);
+  box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+
+  width: 92%;
+  @include tablet {
+    margin: 1rem;
+    border-radius: 3px;
+    width: 95%;
+    @include desktop {
+      margin: 1rem 0 1rem 5rem;
+      width: 87%;
+      padding-left: 3rem;
+    }
+  }
+}
+
+.warehouse-details__h1-container {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  justify-content: space-between;
+  margin-right: 1rem;
+}
+.warehouse-details__h1 {
+  padding-left: 0.5rem;
+  @include font-m-h1-page-header;
+  @include tablet {
+    @include font-h1-page-header;
+  }
+}
+
+.warehouse-details__back-button {
+  display: flex;
+  margin-right: 0.5rem;
+}
+
+.warehouse-details__edit-button {
+  background-color: $primary-instock-indigo;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  padding-right: 2rem;
+}
+
+.warehouse-details__h4 {
+  @include font-m-h4-table-header;
+  font-weight: 600;
+  color: $secondary-slate;
+  margin-bottom: 0.25rem;
+  @include tablet {
+    @include font-h4-table-header;
+  }
+}
+
+.warehouse-details__p2 {
+  @include font-m-p2-body-medium;
+  color: $primary-instock-black;
+  margin-top: 0rem;
+  margin-bottom: 0;
+  @include tablet {
+    @include font-p2-body-medium;
+  }
+}
+
+.warehouse-details__contact-container {
+  display: flex;
+  padding-top: 1rem;
+  @include tablet {
+    padding-right: 4rem;
+  }
+  @include desktop {
+    padding-left: 4rem;
+  }
+}
+
+#contact-name {
+  margin-right: 2rem;
+  @include desktop {
+    margin-right: 9rem;
+  }
+}
+
+.line {
+  border-bottom: 1px solid $secondary-cloud;
+}
+
+.warehouse-details__details-container {
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  @include tablet {
+    display: flex;
+
+    justify-content: space-between;
+  }
+  @include desktop {
+    justify-content: flex-start;
+  }
+}
+
+.warehouse-details__address-container {
+  padding-right: 1rem;
+  @include tablet {
+    align-self: center;
+  }
+}
+
+#smaller-width {
+  @include tablet {
+    width: 80%;
+  }
+}
+
+#container-border {
+  @include tablet {
+    border-right: 1px solid $secondary-cloud;
+    align-self: flex-end;
+    padding-right: 4rem;
+  }
+
+  @include desktop {
+    padding-right: 13rem;
+  }
+}
