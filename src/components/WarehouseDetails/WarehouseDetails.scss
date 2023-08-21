@@ -112,12 +112,6 @@
   }
 }
 
-#smaller-width {
-  @include tablet {
-    width: 80%;
-  }
-}
-
 #container-border {
   @include tablet {
     border-right: 1px solid $secondary-cloud;
@@ -128,4 +122,14 @@
   @include desktop {
     padding-right: 13rem;
   }
+}
+
+.warehouse-details__p-container {
+  display: flex;
+  @include tablet {
+    flex-direction: column;
+  }
+}
+.warehouse-details__p2 {
+  display: flex;
 }

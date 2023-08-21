@@ -18,7 +18,7 @@ function App() {
           <Route path="/deleteinventory/:id" element={<Deleteinventory />} />
           <Route path="/deletewarehouse/:id" element={<Deletewarehouse />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/warehousedetails" element={<WarehouseDetails />} />
+          <Route path="/warehousedetails/:id" element={<WarehouseDetails />} />
         </Routes>
         <Footer />
       </BrowserRouter>
