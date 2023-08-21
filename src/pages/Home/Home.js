@@ -1,7 +1,18 @@
-import "./Home.scss";
-import Nav from "../../components/Nav/Nav";
+
+import WarehouseList from '../../components/WarehouseList/WarehouseList';
+import './Home.scss';
+
+
 
 function Home() {
-  return <></>;
+
+   
+    return ( 
+        <>
+        <WarehouseList />
+        </>
+    );
+
 }
+
 export default Home;
