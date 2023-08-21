@@ -6,6 +6,7 @@ import Delete from "../../assets/images/delete_outline-24px.svg";
 import Edit from "../../assets/images/edit-24px.svg";
 import Arrow from "../../assets/images/chevron_right-24px.svg";
 import Sort from "../../assets/images/sort-24px.svg";
+import { Link } from "react-router-dom";
 
 function WarehouseList() {
   const url = `http://localhost:8080/api/warehouses`;
@@ -46,10 +47,15 @@ function WarehouseList() {
             />{" "}
             <img src={Search} alt="search" />
           </div>
+          <Link
+                    className="warehouses-content__links"
+                    to={`/addwarehouse`}
+                  >
           <button className="warehouses-content__nav--button">
             {" "}
             + Add New Warehouse{" "}
           </button>
+          </Link>
         </div>
 
         <div className="warehouses-content__titles">
@@ -84,12 +90,18 @@ function WarehouseList() {
                   <div className="warehouses-content__list-warehouse--title">
                     <p>WAREHOUSE</p>
                   </div>
+                  <Link
+                    className="warehouses-content__links"
+                    to={`/warehousedetails/${item.id}`}
+                    key={item.id}
+                  >
                   <div className="warehouses-content__list-warehouse--name">
                     <p className="warehouses-content__list-warehouse--name-layout">
                       {item.warehouse_name}
                       <img src={Arrow} alt="arrow" />
                     </p>
                   </div>
+                  </Link>
                 </div>
                 <div className="warehouses-content__list-warehouse--columns-2">
                   <div className="warehouses-content__list-warehouse--title">
@@ -133,7 +145,16 @@ function WarehouseList() {
               </div>
 
               <div className="warehouses-content__list-warehouse--actions">
-                <img src={Delete} alt="delete" /> <img src={Edit} alt="edit" />
+              <Link
+                    className="warehouses-content__links"
+                    to={`/deletewarehouse/${item.id}`}
+                    key={item.id}
+                  ><img src={Delete} alt="delete" /></Link>
+                 <Link
+                    className="warehouses-content__links"
+                    to={`/editwarehouse/${item.id}`}
+                    key={item.id}
+                  ><img src={Edit} alt="edit" /></Link>
               </div>
             </div>
           ))}
