@@ -12,7 +12,6 @@ import ItemDetails from "./components/ItemDetails/ItemDetails";
 import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse";
 import AddInventory from "./components/AddInventory/AddInventory";
 import EditItem from "./components/EditItem/EditItem";
-import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 
 function App() {
   return (
@@ -30,7 +29,6 @@ function App() {
           <Route path="/itemdetails/:id" element={<ItemDetails />} />
           <Route path="/addinventory" element={<AddInventory />} />
           <Route path="/edititem/:id" element={<EditItem />}/>
-          <Route path="/warehousedetails/:id" element={<WarehouseDetails />} />
         </Routes>
         <Footer />
       </BrowserRouter>

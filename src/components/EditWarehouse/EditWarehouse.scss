@@ -4,17 +4,20 @@
 
 .edit-warehouse {
   font-family: "Titillium Web", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
   background: linear-gradient(
-    $background-graphite 9%,
-    $background-light-grey 9%,
-    $background-light-grey 91%
+    $background-graphite 7.5%,
+    $background-light-grey 7.5%,
+    $background-light-grey 92.5%
   );
   height: auto;
   @include tablet {
     background: linear-gradient(
-      $background-graphite 13.75%,
-      $background-light-grey 13.75%,
-      $background-light-grey 86.25%
+      $background-graphite 14.75%,
+      $background-light-grey 14.75%,
+      $background-light-grey 85.25%
     );
   }
 
@@ -22,7 +25,6 @@
     background: $primary-white;
     border-radius: 0.1875rem;
     box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
-
     margin: 0 1rem;
     @include tablet {
       margin: 0 2rem;
@@ -51,7 +53,6 @@
     margin-block-start: 0;
     margin-block-end: 0;
     @include font-m-h1-page-header;
-    font-size: 1.35rem;
     @include tablet {
       @include font-h1-page-header;
     }
@@ -161,8 +162,7 @@
     flex-direction: row;
     gap: 1rem;
     background-color: $background-light-grey;
-    justify-content: space-between;
-    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+    // border-top: 0.0625rem solid $secondary-cloud;
     @include tablet {
       padding: 1rem 2rem;
       justify-content: flex-end;
@@ -179,7 +179,7 @@
     color: $secondary-slate;
     text-align: center;
     border: 1px solid $secondary-cloud;
-    width: 33vw;
+    width: 50%;
     @include font-m-h3-labels-links-buttons;
     &:hover {
       color: $primary-instock-indigo;
@@ -187,17 +187,17 @@
     }
     height: 11.25vw;
     @include tablet {
-      width: 11vw;
+      width: 13%;
       height: 4.948vw;
       @include font-h3-labels-links-buttons;
     }
     @include desktop {
-      width: 7vw;
+      width: 9%;
       height: 2.969vw;
     }
   }
   &__button-save {
-    width: 33vw;
+    width: 50%;
     padding: 0.5rem 1rem;
     border-radius: 1.25rem;
     background-color: $primary-instock-indigo;
@@ -210,12 +210,12 @@
     }
     height: 11.25vw;
     @include tablet {
-      width: 9vw;
+      width: 11%;
       @include font-h3-labels-links-buttons;
       height: 4.948vw;
     }
     @include desktop {
-      width: 5vw;
+      width: 7%;
       height: 2.969vw;
     }
   }
