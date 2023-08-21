@@ -24,7 +24,7 @@ function Deletewarehouse() {
     window.location.replace("/");
   }
   return (
-    <main>
+    <main className="warehouse__main">
       <div className="warehouse">
         <div className="warehouse__container">
           <div className="warehouse__icon-container">
