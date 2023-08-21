@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import "./Deleteinventory.scss";
 import close from "../../assets/images/close-24px.svg";
-<<<<<<< Updated upstream
-function Deleteinventory() {
-=======
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
@@ -40,7 +37,6 @@ function Deleteinventory() {
     window.location.replace("/");
   }
 
->>>>>>> Stashed changes
   return (
     <main className="instock-__main">
       <div className="instock">
