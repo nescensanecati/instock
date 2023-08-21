@@ -20,7 +20,9 @@ function Nav() {
     <>
       <nav className="nav">
         <div className="nav__img-container">
-          <InStockLogo className="nav__logo" />
+        <Link
+            to="/"
+          ><InStockLogo className="nav__logo" /></Link>
         </div>
         <div className="nav__link-container">
           <Link
