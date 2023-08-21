@@ -13,6 +13,7 @@ import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse";
 import AddInventory from "./components/AddInventory/AddInventory";
 import EditItem from "./components/EditItem/EditItem";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import WarehouseInventoryList from "./components/WarehouseInventoryList/WarehouseInventoryList";
 
 function App() {
   return (
@@ -26,10 +27,13 @@ function App() {
           <Route path="/deletewarehouse/:id" element={<Deletewarehouse />} />
           <Route path="/addwarehouse" element={<AddNewWarehouse />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/editwarehouse/:idFromParams" element={<EditWarehouse />}/>
+          <Route
+            path="/editwarehouse/:idFromParams"
+            element={<EditWarehouse />}
+          />
           <Route path="/itemdetails/:id" element={<ItemDetails />} />
           <Route path="/addinventory" element={<AddInventory />} />
-          <Route path="/edititem/:id" element={<EditItem />}/>
+          <Route path="/edititem/:id" element={<EditItem />} />
           <Route path="/warehousedetails/:id" element={<WarehouseDetails />} />
         </Routes>
         <Footer />

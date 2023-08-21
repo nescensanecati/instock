@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import backLogo from "../../assets/images/arrow_back-24px.svg";
 import editButton from "../../assets/images/edit-24px-white.svg";
+import WarehouseInventoryList from "../WarehouseInventoryList/WarehouseInventoryList";
 
 function WarehouseDetails() {
   const [details, setDetails] = useState([]);
@@ -94,6 +95,7 @@ function WarehouseDetails() {
             </div>
           </section>
         </section>
+        <WarehouseInventoryList />
       </>
     );
   }
