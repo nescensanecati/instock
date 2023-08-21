@@ -45,10 +45,12 @@ function InventoryList() {
             />{" "}
             <img src={Search} alt="search" />
           </div>
-          <button className="inventories-content__nav--button">
-            {" "}
-            + Add New Item{" "}
-          </button>
+          <Link className="inventories__links" to={`/addinventory`}>
+            <button className="inventories-content__nav--button">
+              {" "}
+              + Add New Item{" "}
+            </button>
+          </Link>
         </div>
 
         <div className="inventories-content__titles">
@@ -154,7 +156,10 @@ function InventoryList() {
                   {" "}
                   <img src={Delete} alt="delete" />
                 </Link>{" "}
-                <img src={Edit} alt="edit" />
+                <Link to={`/edititem/${item.id}`} key={item.id}>
+                  {" "}
+                  <img src={Edit} alt="edit" />
+                </Link>
               </div>
             </div>
           ))}
