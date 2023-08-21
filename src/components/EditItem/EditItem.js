@@ -26,6 +26,13 @@ function EditItem() {
         return errors[field] !== undefined;
     };
 
+    function handleBackButton () {
+        window.location.replace('/inventory')
+    }
+
+    function handleCancel () {
+        window.location.replace('/inventory')
+    }
 
     const isFormValid = () => {
         const newErrors = {};
@@ -115,6 +122,7 @@ function EditItem() {
                             className="edit-item__img"
                             src={arrowBack}
                             alt="Arrow back"
+                            onClick={handleBackButton}
                         />
                         <h1 className="edit-item__title">Edit Inventory Item</h1>
                     </div>
@@ -273,7 +281,7 @@ function EditItem() {
                         </div>
                     </form>
                     <div className="edit-item__buttons">
-                        <button className="edit-item__button-cancel">Cancel</button>
+                        <button className="edit-item__button-cancel" onClick={handleCancel}>Cancel</button>
                         <button
                             className="edit-item__button-save"
                             onClick={handleSubmit}

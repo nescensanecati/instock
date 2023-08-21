@@ -73,6 +73,7 @@ function AddInventory() {
     setItemStatus("");
     setQuantity("");
     setWarehouse("");
+    window.location.replace("/inventory");
   };
 
   return (

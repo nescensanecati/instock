@@ -11,6 +11,14 @@ function ItemDetails() {
     const [item, setItem] = useState([])
     const { id } = useParams()
 
+    function handleBackButton () {
+        window.location.replace('/inventory')
+    }
+
+    function handleEditButton () {
+        window.location.replace('/edititem/' + id)
+    }
+
     const url = 'http://localhost:8080/api/inventories/' + id
     useEffect(() => {
         axios.get(url)
@@ -35,9 +43,9 @@ function ItemDetails() {
         return (
             <div className='item-details'>
                 <section className='item-details__top'>
-                    <div className='item-details__back-button'><img src={backLogo} alt='button used to go back' /></div>
+                    <div className='item-details__back-button' onClick={handleBackButton}><img src={backLogo} alt='button used to go back'/></div>
                     <h1 className='item-details__h1'>{item[0].item_name}</h1>
-                    <div className='item-details__edit-button'><img src={editButton} alt='button used to edit one item' /></div>
+                    <div className='item-details__edit-button' onClick={handleEditButton}><img src={editButton} alt='button used to edit one item' /></div>
                 </section>
                 <section className='item-details__bottom'>
                     <div className='item-details__left-column'>
