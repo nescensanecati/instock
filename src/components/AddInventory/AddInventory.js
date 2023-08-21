@@ -1,10 +1,10 @@
-import React from "react";
-import arrow from "../../assets/images/arrow_back-24px.svg";
 import "./AddInventory.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import arrow from "../../assets/images/arrow_back-24px.svg";
 import axios from "axios";
 import error from "../../assets/images/error-24px.svg";
+import React from "react";
 
 function AddInventory() {
   const [itemName, setItemName] = useState("");
