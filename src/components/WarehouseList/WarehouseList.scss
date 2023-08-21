@@ -32,6 +32,11 @@
     border-radius: .1875rem;
     box-shadow: 0 .125rem .3125rem 0 rgba(19, 24, 44, 0.10);
 
+    &__links{
+        text-decoration: none;
+      }
+    
+
     @include tablet {
         margin: 0 2.5rem;
     }
@@ -90,6 +95,8 @@
                 background-color:$primary-white;
                 border: none;
                 color: $secondary-slate;
+                margin-bottom: 0;
+                padding-left: 0;
             @include font-m-p2-body-medium;
             } 
         }
