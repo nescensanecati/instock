@@ -26,10 +26,13 @@ function App() {
           <Route path="/deletewarehouse/:id" element={<Deletewarehouse />} />
           <Route path="/addwarehouse" element={<AddNewWarehouse />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="/editwarehouse/:idFromParams" element={<EditWarehouse />}/>
+          <Route
+            path="/editwarehouse/:idFromParams"
+            element={<EditWarehouse />}
+          />
           <Route path="/itemdetails/:id" element={<ItemDetails />} />
           <Route path="/addinventory" element={<AddInventory />} />
-          <Route path="/edititem/:id" element={<EditItem />}/>
+          <Route path="/edititem/:id" element={<EditItem />} />
           <Route path="/warehousedetails/:id" element={<WarehouseDetails />} />
         </Routes>
         <Footer />

@@ -1,6 +1,10 @@
 
 import "./Deleteinventory.scss";
+
+import close from "../../assets/images/close-24px.svg";
+
 import { useEffect } from "react";
+
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import close from "../../assets/images/close-24px.svg";

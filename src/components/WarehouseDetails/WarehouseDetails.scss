@@ -2,22 +2,33 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
+.warehouse-details-wrap{
+  background: linear-gradient(#232940 4.125rem, #f7f8f9 3.75rem, #f7f8f9 85%);
+  @include tablet{
+    background: linear-gradient(#232940 6.5625rem, #f7f8f9 3.75rem, #f7f8f9 85%);
+  }
+}
+
 #warehouse-details {
   font-family: "Titillium Web", sans-serif;
   margin: 1rem;
-  border-radius: 3px;
+  border-radius: .1875rem;
   background: var(--white, #fff);
-  box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+  box-shadow: 0 .125rem .3125rem 0 rgba(19, 24, 44, 0.1);
+  margin-bottom: 0;
+  border-bottom: #bdc5d5 0.0625rem solid;
+  margin-top: 0;
 
-  width: 92%;
   @include tablet {
     margin: 1rem;
-    border-radius: 3px;
-    width: 95%;
+    border-radius: .1875rem;
+    margin-bottom: 0;
+    border-bottom: none;
+    margin: 0 2.5rem;
     @include desktop {
       margin: 1rem 0 1rem 5rem;
-      width: 87%;
-      padding-left: 3rem;
+      margin-bottom: 0;
+      margin: 0 8.125rem;
     }
   }
 }
@@ -28,9 +39,16 @@
   padding-left: 1rem;
   justify-content: space-between;
   margin-right: 1rem;
+  @include tablet{
+    padding: 0 2rem;
+  }
+  @include desktop{
+    padding: 0 2.5rem;
+  }
 }
 .warehouse-details__h1 {
   padding-left: 0.5rem;
+  margin: 2rem 0;
   @include font-m-h1-page-header;
   @include tablet {
     @include font-h1-page-header;
@@ -44,10 +62,11 @@
 
 .warehouse-details__edit-button {
   background-color: $primary-instock-indigo;
-  border-radius: 20px;
-  width: 30px;
-  height: 30px;
-  padding-right: 2rem;
+  border-radius: 1.25rem;
+  padding: .5rem;
+  @include tablet {
+    padding: .5rem 1rem;
+  }
 }
 
 .warehouse-details__h4 {
@@ -73,6 +92,7 @@
 .warehouse-details__contact-container {
   display: flex;
   padding-top: 1rem;
+  
   @include tablet {
     padding-right: 4rem;
   }
@@ -89,7 +109,7 @@
 }
 
 .line {
-  border-bottom: 1px solid $secondary-cloud;
+  border-bottom: .0625rem solid $secondary-cloud;
 }
 
 .warehouse-details__details-container {
@@ -97,11 +117,12 @@
   padding-bottom: 1rem;
   @include tablet {
     display: flex;
-
     justify-content: space-between;
+    padding-left: 2rem;
   }
   @include desktop {
     justify-content: flex-start;
+    padding-left: 2.5rem;
   }
 }
 
@@ -114,7 +135,7 @@
 
 #container-border {
   @include tablet {
-    border-right: 1px solid $secondary-cloud;
+    border-right: .0625rem solid $secondary-cloud;
     align-self: flex-end;
     padding-right: 4rem;
   }

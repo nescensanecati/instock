@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function WarehouseInventoryList() {
-  const { idFromParams } = useParams();
+  const { id } = useParams();
 
   const [warehouseInventoriesItems, setWarehouseInventoriesItems] = useState(
     []
@@ -21,8 +21,7 @@ function WarehouseInventoryList() {
     defaultWarehouseId = warehouseInventoriesItems[0].id;
   }
 
-  const warehouseIdToDisplay =
-    idFromParams !== undefined ? idFromParams : defaultWarehouseId;
+  const warehouseIdToDisplay = id !== undefined ? id : defaultWarehouseId;
 
   const filteredWarehouses = warehouseInventoriesItems.filter((warehouse) => {
     return warehouse.id !== warehouseIdToDisplay;
@@ -36,7 +35,7 @@ function WarehouseInventoryList() {
 
   useEffect(() => {
     getAndDisplayWarehouseInventories();
-  }, [idFromParams]);
+  }, [id]);
 
   const getAndDisplayWarehouseInventories = () => {
     axios
@@ -151,7 +150,10 @@ function WarehouseInventoryList() {
                   {" "}
                   <img src={Delete} alt="delete" />
                 </Link>{" "}
-                <img src={Edit} alt="edit" />
+                <Link to={`/edititem/${item.id}`} key={item.id}>
+                  {" "}
+                  <img src={Edit} alt="edit" />
+                </Link>
               </div>
             </div>
           ))}
