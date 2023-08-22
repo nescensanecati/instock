@@ -1,11 +1,10 @@
 import "./AddNewWarehouse.scss";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import arrowBack from "../../assets/images/arrow_back-24px.svg";
 import axios from "axios";
 
 function AddNewWarehouse() {
-  const formRef = useRef(null);
 
   const [warehouse_name, setName] = useState("");
   const [address, setAddress] = useState("");

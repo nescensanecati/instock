@@ -16,7 +16,6 @@ function WarehouseDetails() {
       .get(warehouseURL)
       .then((response) => {
         setDetails(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log("axios call failed", error);
