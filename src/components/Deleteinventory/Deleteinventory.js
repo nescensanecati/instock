@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+
 import "./Deleteinventory.scss";
-import close from "../../assets/images/close-24px.svg";
-<<<<<<< Updated upstream
-function Deleteinventory() {
-=======
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useEffect } from "react";
+import close from "../../assets/images/close-24px.svg";
+import { useState } from "react";
+
 
 function Deleteinventory() {
   const { id } = useParams();
-  const [alesucks, setAlesucks] = useState();
+  const [inventoryName, setInventoryName] = useState();
 
   useEffect(() => {
     axios
       .get(`http://localhost:8080/api/inventories/` + id)
       .then((response) => {
-        setAlesucks(response.data[0].item_name);
+        setInventoryName(response.data[0].item_name);
       })
       .catch((error) => {
         console.log(error);
@@ -24,11 +23,12 @@ function Deleteinventory() {
   }, []);
 
   function handleDeleteClick() {
-    const url = "http//localhost:8080/api/inventories/" + id;
+    const url = "http://localhost:8080/api/inventories/" + id;
     axios
       .delete(url)
       .then((response) => {
-        console.log(response);
+        alert("Inventory deleted succesfully");
+        window.location.replace("/inventory");
       })
       .catch((error) => {
         console.log(error);
@@ -37,10 +37,9 @@ function Deleteinventory() {
   }
 
   function handleCancelClick() {
-    window.location.replace("/");
+    window.location.replace("/inventory");
   }
 
->>>>>>> Stashed changes
   return (
     <main className="instock-__main">
       <div className="instock">
@@ -49,16 +48,16 @@ function Deleteinventory() {
             <img className="instock__icon" src={close} alt="close-icon" />
           </div>
           <h1 className="instock__heading">
-            Delete {alesucks} inventory item?
+            Delete {inventoryName} inventory item?
           </h1>
           <p className="instock__paragraph">
-            Please confirm that you'd like to delete {alesucks} from the
+            Please confirm that you'd like to delete {inventoryName} from the
             inventory list. You won't be able to undo this action.
           </p>
         </div>
         <div className="instock__button-container">
-          <button className="instock__button instock__button--1">Cancel</button>
-          <button className="instock__button instock__button--2">Delete</button>
+          <button className="instock__button instock__button--1" onClick={handleCancelClick}>Cancel</button>
+          <button className="instock__button instock__button--2" onClick={handleDeleteClick}>Delete</button>
         </div>
       </div>
     </main>
