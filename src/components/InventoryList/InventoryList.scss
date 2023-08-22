@@ -91,6 +91,8 @@
                 background-color:$primary-white;
                 border: none;
                 color: $secondary-slate;
+                margin-bottom: 0;
+                padding-left: 0;
             @include font-m-p2-body-medium;
             } 
         }

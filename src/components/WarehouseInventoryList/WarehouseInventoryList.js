@@ -150,7 +150,10 @@ function WarehouseInventoryList() {
                   {" "}
                   <img src={Delete} alt="delete" />
                 </Link>{" "}
-                <img src={Edit} alt="edit" />
+                <Link to={`/edititem/${item.id}`} key={item.id}>
+                  {" "}
+                  <img src={Edit} alt="edit" />
+                </Link>
               </div>
             </div>
           ))}

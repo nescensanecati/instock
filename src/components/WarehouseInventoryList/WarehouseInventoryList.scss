@@ -4,27 +4,7 @@
 
 .warehouse-inventories{
     font-family: Titillium Web, sans-serif;
-    background: linear-gradient(
-    $background-graphite 3.75rem,
-    $background-light-grey 3.75rem,
-    $background-light-grey 85%
-  );
-
-  @include tablet{
-    background: linear-gradient(
-        $background-graphite 6.5625rem,
-        $background-light-grey 3.75rem,
-        $background-light-grey 85%
-      );
-  }
-  @include desktop{
-    background: linear-gradient(
-        $background-graphite 5.9375rem,
-        $background-light-grey 3.75rem,
-        $background-light-grey 85%
-      );
-  }
-
+   
   &-content{
     background-color: $primary-white;
     margin: 0 1rem;

@@ -13,7 +13,6 @@ import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse";
 import AddInventory from "./components/AddInventory/AddInventory";
 import EditItem from "./components/EditItem/EditItem";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-import WarehouseInventoryList from "./components/WarehouseInventoryList/WarehouseInventoryList";
 
 function App() {
   return (
