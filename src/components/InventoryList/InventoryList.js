@@ -42,6 +42,7 @@ function InventoryList() {
               type="search"
               value="Search..."
               className="inventories-content__nav--search-field"
+              readOnly
             />{" "}
             <img src={Search} alt="search" />
           </div>
@@ -91,7 +92,6 @@ function InventoryList() {
                   <Link
                     className="inventories__links"
                     to={`/itemdetails/${item.id}`}
-                    key={item.id}
                   >
                     <div className="inventories-content__list-inventory--item-name">
                       <p className="inventories-content__list-inventory--item-name-layout">
@@ -152,11 +152,11 @@ function InventoryList() {
               </div>
 
               <div className="inventories-content__list-inventory--actions">
-                <Link to={`/deleteinventory/${item.id}`} key={item.id}>
+                <Link to={`/deleteinventory/${item.id}`}>
                   {" "}
                   <img src={Delete} alt="delete" />
                 </Link>{" "}
-                <Link to={`/edititem/${item.id}`} key={item.id}>
+                <Link to={`/edititem/${item.id}`}>
                   {" "}
                   <img src={Edit} alt="edit" />
                 </Link>

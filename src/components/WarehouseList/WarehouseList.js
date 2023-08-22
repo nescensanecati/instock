@@ -44,6 +44,7 @@ function WarehouseList() {
               type="search"
               value="Search..."
               className="warehouses-content__nav--search-field"
+              readOnly
             />{" "}
             <img src={Search} alt="search" />
           </div>
@@ -93,7 +94,6 @@ function WarehouseList() {
                   <Link
                     className="warehouses-content__links"
                     to={`/warehousedetails/${item.id}`}
-                    key={item.id}
                   >
                   <div className="warehouses-content__list-warehouse--name">
                     <p className="warehouses-content__list-warehouse--name-layout">
@@ -148,12 +148,10 @@ function WarehouseList() {
               <Link
                     className="warehouses-content__links"
                     to={`/deletewarehouse/${item.id}`}
-                    key={item.id}
                   ><img src={Delete} alt="delete" /></Link>
                  <Link
                     className="warehouses-content__links"
                     to={`/editwarehouse/${item.id}`}
-                    key={item.id}
                   ><img src={Edit} alt="edit" /></Link>
               </div>
             </div>
