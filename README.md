@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# InStock Website
+InStock is a Brainstation bootcamp project, this project took one week (one week counted as a sprint during the bootcamp).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The principal objective of this project was to work as a team, we had a Jira board with items to be completed, and then we had to go through the process of assigning points to the items, and then assigning items to each team member. The work was distribuited so every member could complete the same ammount of points for front-end and back-end tasks. So this being a collaborative task, it took daily standups, scrum masters being a different person every time, a lot of helping each other, and everyone working harder to get it through the finish line. 
 
-## Available Scripts
+The collaborators for this repo are: 
+- Amanda Barret (https://github.com/amandabarrett)
+- Graciela Manzanares (https://github.com/gracigraz)
+- Jay Rodriguez (https://github.com/Jairo1031)
+- Maria Gomez (https://github.com/mariavgomez)
+- Alejandro Malagon Diaz (https://github.com/nescensanecati)
 
-In the project directory, you can run:
+Week nine of the bootcamp was when the project was completed and the site was delivered for a final evaluation.
 
-### `npm start`
+Nine weeks into the bootcamp, it was time to be more involved into using HTML, SCSS, JS, React, responsive sites, and a client/server structure.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The site was developed to be reactive and to change the format at three sizes:
+- less than 786 pixels > then use mobile formatting
+- between 786 pixels and less than 1280 pixels > then use tablet formatting
+- more than 1280 pixels > then use desktop formatting
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This site is using a backend API that can be checked in the Git repository: 
+https://github.com/nescensanecati/instock-api
 
-### `npm test`
+The API was adapted to be run in production, and it is now running in Heroku, under the domain: 
+https://database-backend-brainstation-70fdd396b787.herokuapp.com/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you want to see this project deployed and in action, please go to: 
+https://celebrated-bunny-e653a8.netlify.app/
