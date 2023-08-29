@@ -46,7 +46,7 @@ function AddInventory() {
       };
 
       axios
-        .post(`http://localhost:8080/api/inventories/`, inventoryData)
+        .post(`https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/inventories/`, inventoryData)
         .then((response) => {
           alert("Updated new warehouse details successfully!");
           setItemName("");

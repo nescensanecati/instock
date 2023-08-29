@@ -10,7 +10,7 @@ import WarehouseInventoryList from "../WarehouseInventoryList/WarehouseInventory
 function WarehouseDetails() {
   const [details, setDetails] = useState([]);
   const { id } = useParams();
-  const warehouseURL = "http://localhost:8080/api/warehouses/" + id;
+  const warehouseURL = "https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/warehouses/" + id;
   useEffect(() => {
     axios
       .get(warehouseURL)

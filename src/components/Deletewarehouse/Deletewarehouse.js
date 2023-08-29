@@ -13,7 +13,7 @@ function Deletewarehouse() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/warehouses/` + id)
+      .get(`https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/warehouses/` + id)
       .then((response) => {
         setWarehouseName(response.data[0].warehouse_name);
       })
@@ -23,7 +23,7 @@ function Deletewarehouse() {
   }, []);
 
   function handleDeleteClick() {
-    const url = "http://localhost:8080/api/warehouses/" + id;
+    const url = "https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/warehouses/" + id;
     axios
       .delete(url)
       .then((response) => {

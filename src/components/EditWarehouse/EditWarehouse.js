@@ -73,7 +73,7 @@ function EditWarehouse() {
       //Send the data to the server using the axios library's PUT method to update data on the server
       axios
         .put(
-          `http://localhost:8080/api/warehouses/` + idFromParams,
+          `https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/warehouses/` + idFromParams,
           warehouseData
         )
         .then((response) => {

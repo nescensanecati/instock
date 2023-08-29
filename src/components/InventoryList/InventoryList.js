@@ -8,7 +8,7 @@ import Arrow from "../../assets/images/chevron_right-24px.svg";
 import Sort from "../../assets/images/sort-24px.svg";
 import { Link } from "react-router-dom";
 function InventoryList() {
-  const inventoriesUrl = `http://localhost:8080/api/inventories`;
+  const inventoriesUrl = `https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/inventories`;
 
   const [inventoriesItems, setInventoriesItems] = useState([]);
   const [selectedInventoriesItem, setSelectedInventoriesItem] = useState(null);

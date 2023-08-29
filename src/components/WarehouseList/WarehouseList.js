@@ -9,7 +9,7 @@ import Sort from "../../assets/images/sort-24px.svg";
 import { Link } from "react-router-dom";
 
 function WarehouseList() {
-  const url = `http://localhost:8080/api/warehouses`;
+  const url = `https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/warehouses`;
   const warehousesUrl = `${url}`;
 
   const [contentItems, setContentItems] = useState([]);

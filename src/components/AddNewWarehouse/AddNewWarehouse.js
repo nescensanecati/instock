@@ -71,7 +71,7 @@ function AddNewWarehouse() {
       };
       //Send the data to the server using the axios library's PUT method to update data on the server
       axios
-        .post(`http://localhost:8080/api/warehouses`, warehouseData)
+        .post(`https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/warehouses`, warehouseData)
         .then((response) => {
           alert("Updated new warehouse details successfully!");
           setName("");

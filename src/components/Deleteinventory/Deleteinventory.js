@@ -12,7 +12,7 @@ function Deleteinventory() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/inventories/` + id)
+      .get(`https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/inventories/` + id)
       .then((response) => {
         setInventoryName(response.data[0].item_name);
       })
@@ -22,7 +22,7 @@ function Deleteinventory() {
   }, []);
 
   function handleDeleteClick() {
-    const url = "http://localhost:8080/api/inventories/" + id;
+    const url = "https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/inventories/" + id;
     axios
       .delete(url)
       .then((response) => {

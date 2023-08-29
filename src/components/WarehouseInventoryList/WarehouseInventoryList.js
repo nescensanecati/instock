@@ -26,7 +26,7 @@ function WarehouseInventoryList() {
   const filteredWarehouses = warehouseInventoriesItems.filter((warehouse) => {
     return warehouse.id !== warehouseIdToDisplay;
   });
-  const warehouseinventoriesUrl = `http://localhost:8080/api/warehouses/${warehouseIdToDisplay}/inventories `;
+  const warehouseinventoriesUrl = `https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/warehouses/${warehouseIdToDisplay}/inventories `;
 
   const [
     selectedWarehouseInventoriesItem,

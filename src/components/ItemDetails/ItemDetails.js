@@ -19,7 +19,7 @@ function ItemDetails() {
         window.location.replace('/edititem/' + id)
     }
 
-    const url = 'http://localhost:8080/api/inventories/' + id
+    const url = 'https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/inventories/' + id
     useEffect(() => {
         axios.get(url)
             .then(response => {

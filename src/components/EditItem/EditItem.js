@@ -49,7 +49,7 @@ function EditItem() {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/inventories/' + id)
+        axios.get('https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/inventories/' + id)
             .then(response => {
                 setItem_name(response.data[0].item_name);
                 setDescription(response.data[0].description);
@@ -64,7 +64,7 @@ function EditItem() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/warehouses')
+        axios.get('https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/warehouses')
         .then(response => {
             setWarehouseArray(response.data);
             for (let i = 0; i < response.data.length; i++) {
@@ -96,7 +96,7 @@ function EditItem() {
 
             axios
                 .put(
-                    `http://localhost:8080/api/inventories/` + id,
+                    `https://database-backend-brainstation-70fdd396b787.herokuapp.com/api/inventories/` + id,
                     itemData
                 )
                 .then((response) => {
